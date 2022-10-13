@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="xp.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+<center>
+<div id="windows" class="window" style="width: 340px; margin-top:25">
+  <div class="title-bar">
+    <div class="title-bar-text" id="nama_wifi"></div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <section class="tabs">
+    		<menu role="tablist" aria-label="Sample Tabs">
+    			<button onclick="voucher()" class="tab" id="login" role="tab" aria-selected="true" aria-controls="tab-A"><img src="card.ico"><br>Voucher</button> 
+    			<button onclick="member()" class="tab" id="login_member" role="tab" aria-selected="false" aria-controls="tab-B"><img src="users.ico"><br>Member</button> 
+    			<button onclick="paket()" class="tab" id="paket" role="tab" aria-selected="false" aria-controls="tab-C"><img src="chart.ico"><br>Daftar Paket</button> 
+    			<button onclick="info()" class="tab" id="info" role="tab" aria-selected="false" aria-controls="tab-D"><img src="tips.ico"><br>Info</button> 
+    		</menu> <!-- the tab content --> 
+    		
+     	<article class="tab_content" id="content_login" role="tabpanel" id="tab_voucher">
+                
+                <input id="u" class="username" name="username" type="text" value="" placeholder="Kode Voucher" style="padding:15"/>
+                <input id="p" class="password" name="password" type="hidden" placeholder="Password" style="padding:15"/>
+      </article>
+      
+      <article class="tab_content" id="content_paket" role="tabpanel" style="display:none">
+      	<p><b>Daftar Paket WiFi</b></p>
+      	<table class="table" width="100%">
+      		<tbody>
+      		<tr>
+      			<th>Paket</th>
+      			<th>Harga</th>
+      			<th>Durasi</th>
+      		</tr>
+      		</tbody>
+      		<tbody id="harga"></tbody>
+      	</table>
+      </article>
+      
+      <article class="tab_content" id="content_info" role="tabpanel" style="display:none">
+      		<p align="center" id="box_info"></p>
+      </article>
+      
+    			<section id="btn_list" class="field-row" style="justify-content: flex-end">
+          <button id="btn_login" class="button-icon" style="background-image:url('next.ico')">Sambungkan</button>
+    			</section>
+     </form>
+   </div>
+</div>
+</center>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript">	  
+var page = $(".tab_content");
+var tab = $(".tab");
+
+function setpass() {
+    var user = u.value
+    u.value = user;
+    p.value = user;
+}
+
+u.onkeyup = setpass;
+
+function reset(){
+	for(x=0; x<page.length; x++){
+		$(page[x]).hide();
+		for(y=0; y<tab.length; y++){
+			$(tab[y]).attr("aria-selected","false");
+		}
+	}
+}
+
+function voucher() {
+	reset();
+	$("#login").attr("aria-selected","true");
+	$("#content_login").show();
+  u.focus();
+  u.onkeyup = setpass;
+  u.placeholder = "Kode Voucher";
+  p.type = "hidden";
+  login_text.innerHTML ="Masukan kode voucher.";
+  $("#btn_list").prop("disabled", "false");
+  $("#btn_login").show();
+}
+
+function member() {
+	reset();
+	$("#login_member").attr("aria-selected","true");
+	$("#content_login").show();
+  u.focus();
+	$("#content_login").show();
+  u.placeholder = "User ID";
+  u.focus();
+  u.onkeyup = "";
+  p.type = "password";
+  login_text.innerHTML = "Masukan User ID dan Password.";
+  $("#btn_login").show();
+}
+
+function paket(){
+	reset();
+	$("#paket").attr("aria-selected","true");
+	$("#content_paket").show();
+	$("#btn_login").hide();
+}
+
+function info(){
+	reset();
+	$("#info").attr("aria-selected","true");
+	$("#content_info").show();
+	$("#btn_login").hide();
+}
+
+</script>
+</body>
+</html>

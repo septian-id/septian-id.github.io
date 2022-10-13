@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<title>Log In</title>
+		<meta name="viewport" content="width=device-width,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/w7.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+	<div class="window" style="max-width: 400px">
+  <div class="title-bar">
+    <div class="title-bar-text">Stars WiFi</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <menu role="tablist">
+      <button id="btnvoucher" role="tab" aria-controls="voucher" onclick="voucher()" aria-selected="true">Voucher</button>
+      <button id="btnmember" role="tab" aria-controls="member" onclick="member()" aria-selected="false">Member</button>
+      <button id="btnharga" role="tab" aria-controls="harga" onclick="harga()" aria-selected="false">Harga</button>
+      <button id="btnkontak" role="tab" aria-controls="kontak" onclick="kontak()" aria-selected="false">Kontak</button>
+    </menu>
+    
+    <article role="tabpanel" id="loginform">
+    			<p align="right" class="trial"><a href="#">Trial Gratis</a></p>
+    			
+    			<p>Masukan Kode Voucher</p>  			
+      	<input name="username" id="username" type="text" autocomplete="off" style="padding:15px;font-weight:500"class="input" placeholder="Kode Voucher" value="">
+      	<input name="password" id="password" type="hidden" style="padding:15px;font-weight:500" class="input" placeholder="Password">
+      		    		
+    			<section class="field-row" style="justify-content: flex-end">
+      		<button>Log In</button>
+    			</section>
+    </article>
+    
+    <article role="tabpanel" id="hargaform" style="display:none">
+    		<table class="harga">
+    			<tr>
+    				<th>No</th>
+    				<th>Durasi</th>
+    				<th>Harga</th>
+    			</tr>
+    			<tr>
+    				<td>1</td>
+    				<td>3 JAM</td>
+    				<td>Rp 2.000</td>
+    			</tr>
+       	<tr>
+    				<td>2</td>
+    				<td>5 JAM</td>
+    				<td>Rp 3.000</td>
+    			</tr> 
+    			<tr>
+    				<td>3</td>
+    				<td>10 JAM</td>
+    				<td>Rp 5.000</td>
+    			</tr>	
+    			<tr>
+    				<td>4</td>
+    				<td>7 HARI</td>
+    				<td>Rp 20.000</td>
+    			</tr>
+    			<tr>
+    				<td>5</td>
+    				<td>1 BULAN</td>
+    				<td>Rp 50.000</td>
+    			</tr>
+    		</table>
+    </article>
+    
+    <article role="tabpanel" id="kontakform" style="display:none">
+    		<p><b>Alamat</b><br>Jl.Test, No.01, Blok Uji, Coba, Test, 43359</p>
+    		<p><b>Kontak</b><br>WhatsApp: 0895 3278 21623
+    	</article>
+  </div>
+</div>
+<script type="text/javascript">
+	var user = document.getElementById("username");
+	var pass = document.getElementById("password");
+	
+	function setPassword(){
+		user.value = user.value;
+		pass.value = user.value;
+	}
+	
+	user.onkeyup = setPassword;
+	
+	function voucher(){
+		user.onkeyup = setPassword;
+		pass.type = "hidden";
+		btnvoucher.setAttribute("aria-selected","true");
+		btnmember.setAttribute("aria-selected","false");
+		btnharga.setAttribute("aria-selected","false");
+		btnkontak.setAttribute("aria-selected","false");
+		loginform.style.display = "block";
+		hargaform.style.display = "none";
+		kontakform.style.display = "none";
+	}
+	
+	function member(){
+		user.onkeyup = "";
+		pass.type = "password";
+		btnvoucher.setAttribute("aria-selected","false");
+		btnmember.setAttribute("aria-selected","true");
+		btnharga.setAttribute("aria-selected","false");
+		btnkontak.setAttribute("aria-selected","false");
+		loginform.style.display = "block";
+		hargaform.style.display = "none";
+		kontakform.style.display = "none";
+	}
+	function harga(){
+		btnvoucher.setAttribute("aria-selected","false");
+		btnmember.setAttribute("aria-selected","false");
+		btnharga.setAttribute("aria-selected","true");
+		btnkontak.setAttribute("aria-selected","false");
+		loginform.style.display = "none";
+		hargaform.style.display = "block";
+		kontakform.style.display = "none";
+	}
+	function kontak(){
+		btnvoucher.setAttribute("aria-selected","false");
+		btnmember.setAttribute("aria-selected","false");
+		btnharga.setAttribute("aria-selected","false");
+		btnkontak.setAttribute("aria-selected","true");
+		loginform.style.display = "none";
+		hargaform.style.display = "none";
+		kontakform.style.display = "block";
+	}
+
+</script>
+</script>
+</body>
+</html>

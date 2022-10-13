@@ -1,0 +1,49 @@
+*{
+	font-weight:900;
+}
+body,html{
+	min-height:100%;
+}
+body{
+       margin: auto;
+       max-width: 340px;
+       background-image: url("bg.jpg");
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       
+      }
+      input{
+      	padding:20px;
+      }
+      input, .info{
+        font-weight:900;
+        padding:5px;
+        margin-top:5px;
+        width:100%;
+      }
+      .error{
+      	border: 1px solid red;
+      	color: red;
+      	margin-top: 5px;
+      }
+      .table{
+      	font-size: 12px;
+      	border: 1px solid #ddd;
+      	border-collapse: collapse;
+      }
+      .table th{
+      	background: rgba(0,0,100,0.3)
+      }
+      .table th,td{
+      	border: 1px solid #ddd;
+      	border-collapse: collapse;
+      }
+      .button-icon{
+      	padding:10px;
+      	padding-left:35px;
+      	background-size:20px;
+      	background-position: 10% ;
+      	background-repeat: no-repeat;
+      }
+      

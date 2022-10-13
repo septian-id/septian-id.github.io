@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<title>Log In</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+	</head>
+	<body>
+		<div class="window">
+			<div class="title_bar" id="title_bar"></div>
+			<div class="toolbar">
+					<button class="toolbarButton" onclick="voucher()" id="btn_voucher"><img src="icon/voucher.ico"><br>Voucher</button>
+					<button class="toolbarButton" onclick="user()" id="btn_user"><img src="icon/user.ico"><br>User</button>
+					<button class="toolbarButton" onclick="harga()" id="btn_harga"><img src="icon/harga.ico"><br>Daftar Harga</button>
+					<button class="toolbarButton" onclick="info()" id="btn_info"><img src="icon/info.ico"><br>Info</button>
+			</div>
+			<div class="window-body">
+				<div id="voucher" class="panel" style="display:block">
+					<div class="loginMode" id="loginMode">Masukan Kode Voucher.</div>
+        	<input id="username" class="input" class="username" name="username" type="text" value="" />
+       		<input id="password" class="input" name="password" placeholder="Password" type="hidden" />
+
+       		<p align="right">
+        		<button id="btnLogin" class="button" type="submit">Sambungkan</button>
+						</p>
+				</div>
+				
+				<div id="harga" class="panel" style="display:none">
+					<p align="center"><b>Daftar Harga</b></p>
+					<table class="table" width="100%">
+						<tbody>
+							<tr>
+								<th>Paket</th>
+								<th>Harga</th>
+								<th>Aktif</th>
+							</tr>
+						<tbody id="listItem"></tbody>
+					</table>
+				</div>
+				<div id="panelInfo" class="panel panelInfo" style="display:none"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="config.js"></script>
+		<script type="text/javascript">	
+				function close_all(){
+					var panel = document.getElementsByClassName("panel");
+					for(x=0; x<panel.length; x++){
+						panel[x].style.display = "none";
+					}
+				}
+				function setpass() {
+    			var user = username.value;
+    			username.value = user;
+    			password.value = user;
+				}
+
+				username.onkeyup = setpass;	
+				
+				function voucher() {
+					close_all();
+					document.getElementById("voucher").style.display = "block";
+    			username.onkeyup = setpass;
+    			username.placeholder = "Kode Voucher";
+    			password.type = "hidden";
+    			btnLogin.style.display = "block";
+    			document.getElementById("loginMode").innerHTML = "Masukan Kode Voucher";
+				}
+
+				function user() {
+					close_all();
+					document.getElementById("voucher").style.display = "block";
+    			username.onkeyup = "";
+    			username.placeholder = "User ID";
+    			password.type = "password";
+    			btnLogin.style.display = "block";
+    			document.getElementById("loginMode").innerHTML = "Masukan User ID dan Password";
+				}
+				
+				function harga(){
+					close_all();
+					document.getElementById("harga").style.display = "block";
+				}
+				
+				function info(){
+					close_all();
+					document.getElementById("panelInfo").style.display = "block";
+				}
+
+		</script>
+	</body>
+</html>
