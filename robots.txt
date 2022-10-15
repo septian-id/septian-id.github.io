@@ -7,3 +7,12 @@ Disallow:
 User-agent: Googlebot-Image
 Disallow:
 Sitemap: http://septian-id.github.io/sitemap.xml
+
+User-agent: Yandex
+Disallow: /корзина
+Sitemap: http://septian-id.github.io/sitemap.xml
+
+#Верно:
+User-agent: Yandex
+Disallow: /%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0
+Sitemap: http://septian-id.github.io/sitemap.xml
