@@ -17,6 +17,7 @@ body{
 	text-align: center;
 }
 .app{
+	margin: auto;
 	min-width: 90%;
 	max-width: 640px;
 }
@@ -29,4 +30,7 @@ ul{
 }
 li{
 	list-style-type: none;
+}
+input:focus{
+	outline: none;
 }
