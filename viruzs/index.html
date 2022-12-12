@@ -98,7 +98,7 @@
 								<input class="input border border-amber round margin-top" type="text" id="email" placeholder="E-Mail">
 								<textarea class="input border border-amber round margin-top" id="alamat" placeholder="Alamat"></textarea>
 								<input class="input border border-amber round margin-top" type="text" id="rtrw" placeholder="rtrw">
-								<button class="button amber right margin-top">Booking</button>
+								<button class="button amber right margin-top" onclick="pendaftaran()">Booking</button>
 						</div>
 						<div class="container" id="fproduk" style="display: none">
 							PRODUK
@@ -247,6 +247,36 @@
 		getID("fbantuan").style.display = "none";
 		getID("finfo").style.display = "none";
 		getID("ftentang").style.display = "block";
+	}
+
+	function pendaftaran(){
+		var ta = getID("nama").value;
+		var tb = getID("no_identitas").value;
+		var tc = getID("no_wa").value;
+		var td = getID("email").value;
+		var te = getID("alamat").value;
+		var tf = getID("rtrw").value;
+		if(ta==""){
+			alert('Kolom "NAMA" belum diisi.');
+			getID("nama").focus();
+		}else if(tb==""){
+			alert('Kolom "NO IDENTITAS" belum diisi');
+			getID("no_identitas").focus();
+		}else if(tc==""){
+			alert('Kolom "Nomor WhatsApp " belum diisi');
+			getID("no_wa").focus();
+		}else if(td==""){
+			alert('Kolom "E-MAIL" belum diisi');
+			getID("email").focus();
+		}else if(te==""){
+			alert('Kolom "ALAMAT" belum diisi');
+			getID("alamat").focus();
+		}else if(tf==""){
+			alert('Kolom "RT/RW" belum diisi');
+			getID("rtrw").focus();
+		}else{
+			window.location = "https://wa.me/62895327821623?text=*PENDAFTARAN*%0ANama=" + ta + "%0ANo.Identitas=" + tb + "%0ANo.WA=" + tc + "%0AE-Mail=" + td + "%0Aalamat=" + te + "%0ART/RW=" + tf;
+		}
 	}
 	var slideIndex = 1;
 		showDivs(slideIndex);
