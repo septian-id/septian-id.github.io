@@ -4,9 +4,10 @@
 	<title>Hotspot -> Log In</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://septian-id.github.io/cdn/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
-<body>
+<body class="prevent-select">
 	<div class="container dark-gray">
 		<h3 class="header"><b class="text-white">LOGIN AREA</b></h3>
 	</div>
@@ -25,20 +26,33 @@
 					<td width="360" valign="top">
 						<h3 align="center">LOGO</h3>
 						<ul>
-							<li class="dark-gray text-amber padding-small border border-white">Voucher</li>
-							<li class="dark-gray text-amber padding-small border border-white">Member</li>
-							<li class="dark-gray text-amber padding-small border border-white">Harga</li>
-							<li class="dark-gray text-amber padding-small border border-white">Daftar</li>
-							<li class="dark-gray text-amber padding-small border border-white">Produk</li>
-							<li class="dark-gray text-amber padding-small border border-white">Info</li>
-							<li class="dark-gray text-amber padding-small border border-white">Bantuan</li>
-							<li class="dark-gray text-amber padding-small border border-white">Tentang Kami</li>
+							<li onclick="voucher()" class="dark-gray text-amber padding-small border border-white">Voucher</li>
+							<li onclick="member()" class="dark-gray text-amber padding-small border border-white">Member</li>
+							<li onclick="harga()" class="dark-gray text-amber padding-small border border-white">Harga</li>
+							<li onclick="daftar()" class="dark-gray text-amber padding-small border border-white">Daftar</li>
+							<li onclick="product()" class="dark-gray text-amber padding-small border border-white">Produk</li>
+							<li onclick="info()" class="dark-gray text-amber padding-small border border-white">Info</li>
+							<li onclick="bantuan()" class="dark-gray text-amber padding-small border border-white">Bantuan</li>
+							<li onclick="tentang()" class="dark-gray text-amber padding-small border border-white">Tentang Kami</li>
 						</ul>
-						<div class="container" id="flogin">
-							<input class="input border border-gray round margin-top" type="text" name="username" placeholder="Username">
-							<input class="input border border-gray round margin-top" type="password" name="password" placeholder="Password">
-							<button class="button gray margin-top right">Masuk</button>
+
+						<div class="container" id="fhome">
+							<ul class="ul small">
+								<li><i class="fa fa-check"></i> Klik "Voucher" kemudian masukan "kode voucher" yang sudah dibeli dari "Reseller" kami. Sesuaikan huruf besar dan kecilnya.</li>
+								<li><i class="fa fa-check"></i> Klik "Member" kemudian masukan "Username & Password". Sesuaikan huruf besar dan kecilnya.</li>
+								<li><i class="fa fa-check"></i> Klik "Harga" untuk mengetahui harga voucher WiFi.</li>
+								<li><i class="fa fa-check"></i> Klik "Daftar" untuk melakukan pendaftaran / booking internet pelanggan rumahan.</li>
+								<li><i class="fa fa-check"></i> Klik "Produk" untuk mengetahui produk kami.</li>
+								<li><i class="fa fa-check"></i> Klik "Info" untuk mengetahui info penting dari kami.</li>
+								<li><i class="fa fa-check"></i> Klik "Bantuan" untuk mengetahui cara penanganan kendala yang berhubungan dengan internet kami.</li>
+							</ul> 
 						</div>
+						<div class="container" id="flogin" style="display: none">
+							<input id="username" class="input border border-gray round margin-top" type="text" name="username" placeholder="Username">
+							<input id="password" class="input border border-gray round margin-top" type="hidden" name="password" placeholder="Password">
+							<button class="button gray margin-top right round">Masuk</button>
+						</div>
+
 					</td>
 				</tr>
 				<tr>
@@ -54,6 +68,40 @@
 		</div>
 	</div>
 <script type="text/javascript">
+	function getID(target){
+		var x = document.getElementById(target);
+		return x;
+	}
+
+	var user = getID("username");
+	var pass = getID("password");
+
+	function set_password(){
+		user.value = user.value;
+		pass.value = user.value;
+	}
+	function clear_text(){
+		user.value = "";
+		pass.value = "";
+	}
+	user.onkeyup = set_password;
+
+	function voucher(){
+		clear_text();
+		getID("fhome").style.display = "none";
+		getID("flogin").style.display = "block";
+		user.onkeyup = set_password;
+		pass.type = "hidden";
+	}
+
+	function member(){
+		clear_text();
+		getID("fhome").style.display = "none";
+		getID("flogin").style.display = "block";
+		user.onkeyup = "";
+		pass.type = "password";
+	}
+
 	var slideIndex = 1;
 		showDivs(slideIndex);
 
