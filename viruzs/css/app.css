@@ -2,6 +2,7 @@ html, body{
 	min-height: 100%;
 }
 body{
+	margin: auto;
 	background-image: url("../image/gb1.png");
 	background-position: center;
 	background-size: 100% 100%;
