@@ -4,10 +4,30 @@
 	<title>Hotspot -> Log In</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://septian-id.github.io/cdn/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body class="prevent-select">
+$(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="./md5.js"></script>
+    <script>
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+
+    </script>
+$(endif)
+
 	<div class="container dark-gray">
 		<h3 class="header"><b class="text-white">LOGIN AREA</b></h3>
 	</div>
@@ -24,7 +44,7 @@
 						</div>
 					</td>
 					<td width="360" valign="top">
-						<h3 align="center">LOGO</h3>
+						<img src="image/logo.png" width="100%">
 						<ul>
 							<li onclick="voucher()" class="dark-gray text-amber padding-small border border-white">Voucher</li>
 							<li onclick="member()" class="dark-gray text-amber padding-small border border-white">Member</li>
@@ -50,9 +70,15 @@
 						</div>
 
 						<div class="container" id="flogin" style="display: none">
-							<input id="username" class="input border border-amber round margin-top" type="text" name="username" placeholder="Username">
-							<input id="password" class="input border border-amber round margin-top" type="hidden" name="password" placeholder="Password">
-							<button class="button amber margin-top right round">Masuk</button>
+							<p align="center" id="login_mode"></p>
+							$(if error) <p align="center" style="color:red; margin: 0px; padding:0px;">$(error)</p>$(endif)
+							<form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+        						<input type="hidden" name="dst" value="$(link-orig)" />
+            					<input type="hidden" name="popup" value="true" />
+								<input id="username" class="input border border-amber round margin-top" type="text" name="username" placeholder="Username">
+								<input id="password" class="input border border-amber round margin-top" type="hidden" name="password" placeholder="Password">
+								<button class="button amber margin-top right round">Masuk</button>
+							</form>
 						</div>
 
 						<div class="container" id="fharga" style="display: none">
@@ -101,22 +127,52 @@
 								<button class="button amber right margin-top" onclick="pendaftaran()">Booking</button>
 						</div>
 						<div class="container" id="fproduk" style="display: none">
-							PRODUK
+							<p align="center"><b>Daftar Produk</b></p>
+
+							<div class="card margin-top padding-small">
+								<p align="left" class="padding-small">
+									<b>Nama Barang</b><br>
+									<span class="text-gray">Deskripsi / Spesifikasi produk</span>
+								</p>
+								<img src="produk/1.jpg" width="100%">
+								<p align="right"><i class="fa fa-shopping-cart"></i> <b class="text-red">Rp 500.000</b></p>
+							</div>
+
+							<div class="card margin-top padding-small">
+								<p align="left" class="padding-small">
+									<b>Nama Barang</b><br>
+									<span class="text-gray">Deskripsi / Spesifikasi produk</span>
+								</p>
+								<img src="produk/2.jpg" width="100%">
+								<p align="right"><i class="fa fa-shopping-cart"></i> <b class="text-red">Rp 500.000</b></p>
+							</div>
+
+							<div class="card margin-top padding-small">
+								<p align="left" class="padding-small">
+									<b>Nama Barang</b><br>
+									<span class="text-gray">Deskripsi / Spesifikasi produk</span>
+								</p>
+								<img src="produk/3.jpg" width="100%">
+								<p align="right"><i class="fa fa-shopping-cart"></i> <b class="text-red">Rp 500.000</b></p>
+							</div>
 						</div>
 						<div class="container" id="finfo" style="display: none">
-							INFO
+							<p align="center"><b>Informasi</b></p>
+							<p align="left" class="text-gray">Halaman Informasi</p>
 						</div>
 						<div class="container" id="fbantuan" style="display: none">
-							BANTUAN
+							<p align="center"><b>Bantuan</b></p>
+							<p align="left" class="text-gray">Halaman Bantuan</p>
 						</div>
 						<div class="container" id="ftentang" style="display: none">
-							TENTANG
+							<p align="center"><b>Tentang Kami</b></p>
+							<p align="left" class="text-gray">Halaman Tentang Kami</p>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td class="hide-large hide-medium">
-						<div id="imageslider2" class="content display-container" style="max-width:800px">
+						<div id="imageslider2" class="content display-container margin-bottom" style="max-width:800px">
 						  <img class="mySlides2" src="./slideshow/1.jpg" style="width:100%; height: 100%">
 						  <img class="mySlides2" src="./slideshow/2.jpg" style="width:100%; height: 100%">
 						  <img class="mySlides2" src="./slideshow/3.jpg" style="width:100%; height: 100%">
@@ -156,7 +212,8 @@
 		getID("fbantuan").style.display = "none";
 		getID("finfo").style.display = "none";
 		getID("ftentang").style.display = "none";
-
+		getID("login_mode").innerHTML = "Masukan Kode Voucher";
+		user.placeholder = "Kode Voucher";
 		user.onkeyup = set_password;
 		pass.type = "hidden";
 	}
@@ -172,7 +229,8 @@
 		getID("fbantuan").style.display = "none";
 		getID("finfo").style.display = "none";
 		getID("ftentang").style.display = "none";
-
+		getID("login_mode").innerHTML = "Masukan Username & Password";
+		user.placeholder = "Username"
 		user.onkeyup = "";
 		pass.type = "password";
 	}
