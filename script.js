@@ -1,6 +1,6 @@
 class controller{
 	constructor(){
-		this.hostname = "http://localhost/web";
+		this.hostname = "https://septian-id.github.io";
 	}
 	load_menu(){
 		this.data = [
