@@ -16,7 +16,7 @@ class controller{
 		this.data = [
 				{
 					"title"				: "Stars Billing - Aplikasi Billing Hotspot Mikrotik Berbasis Web",
-					"description"		: "Seorang profesional IT dibidang jaringan. Berbekal pengalaman kerja, Saya bisa melakukan konfigurasi mikrotik dan perangkat jaringan lainya untuk mengatasi kendala/masalah yang anda alami saat ini.",
+					"description"		: "aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik. Khususnya MikroTik yang tidak mendukung User Manager.",
 					"thumbnail" 		: this.hostname+"/img/stars-billing-dashboard.jpg",
 					"link" 				: this.hostname+"/",
 					"date" 				: "2023-06-01 11:01:02"
@@ -30,7 +30,7 @@ class controller{
 				},
 				{
 					"title"				: "Jasa Design Website Dan Login Page Mikrotik.",
-					"description"		: "Saya seorang profesional IT dibidang jaringan. Berbekal pengalaman kerja, Saya bisa melakukan konfigurasi mikrotik dan perangkat jaringan lainya untuk mengatasi kendala/masalah yang anda alami saat ini.",
+					"description"		: "STARS LAB - Jasa design website dan login page mikrotik profesional, Berkualitas dan Terpercaya.",
 					"thumbnail" 		: this.hostname+"/img/jasa-design-website-dan-login-page-mikrotik.jpg",
 					"link" 				: this.hostname+"/jasa-design-website-dan-login-page-mikrotik.html",
 					"date" 				: "2023-06-01 11:01:02"
