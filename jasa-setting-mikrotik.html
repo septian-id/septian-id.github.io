@@ -508,7 +508,43 @@
                             </div>
                   </div>
                 </div>
-                <div class="col-md-4" id="post"></div>
+                <div class="col-md-4" id="post">
+                      <div class="box box-warning">
+                          <div class="box-header with-border">
+                            <h4 class="box-title">Jasa Design Website Dan Login Page Mikrotik.</h4>
+                          </div>
+
+                          <div class="box-body">
+                            <a href="https://septian-id.github.io/jasa-design-website-dan-login-page-mikrotik.html"><img src="https://septian-id.github.io/img/jasa-design-website-dan-login-page-mikrotik.jpg" width="100%"></a>
+                            <br><br>
+                            <center>STARS LAB - Jasa design website dan login page mikrotik profesional, Berkualitas dan Terpercaya.</center>
+                          </div>
+                        </div>
+          
+                      <div class="box box-warning">
+                          <div class="box-header with-border">
+                            <h4 class="box-title">Jasa Setting Mikrotik Online Terpercaya</h4>
+                          </div>
+
+                          <div class="box-body">
+                            <a href="https://septian-id.github.io/jasa-setting-mikrotik.html"><img src="https://septian-id.github.io/img/jasa-setting-mikrotik.jpg" width="100%"></a>
+                            <br><br>
+                            <center>Seorang profesional IT dibidang jaringan. Berbekal pengalaman kerja, Saya bisa melakukan konfigurasi mikrotik dan perangkat jaringan lainya untuk mengatasi kendala/masalah yang anda alami saat ini.</center>
+                          </div>
+                        </div>
+          
+                      <div class="box box-warning">
+                          <div class="box-header with-border">
+                            <h4 class="box-title">Stars Billing - Aplikasi Billing Hotspot Mikrotik Berbasis Web</h4>
+                          </div>
+
+                          <div class="box-body">
+                            <a href="https://septian-id.github.io/"><img src="https://septian-id.github.io/img/stars-billing-dashboard.jpg" width="100%"></a>
+                            <br><br>
+                            <center>aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik. Khususnya MikroTik yang tidak mendukung User Manager.</center>
+                          </div>
+                        </div>
+          </div>
             </div>
         </section>
       </div> 
@@ -541,25 +577,6 @@
         menu.forEach(function(m){
           $("#root_menu").append(`<li><a href="`+m.link+`"><i class="fa fa-circle-o"></i> `+m.title+`</a></li>`);
         });
-
-        var contents = sys.load_contents();
-        var index = Math.floor(Math.random() * contents.length);
-
-          contents.forEach(function(c){
-          $("#post").prepend(`
-                      <div class="box box-warning">
-                          <div class="box-header with-border">
-                            <h4 class="box-title">`+c.title+`</h4>
-                          </div>
-
-                          <div class="box-body">
-                            <a href="`+c.link+`"><img src="`+c.thumbnail+`" width="100%"></a>
-                            <br><br>
-                            <center>`+c.description+`</center>
-                          </div>
-                        </div>
-          `);
-        }); 
       });
     </script>
   </body>
