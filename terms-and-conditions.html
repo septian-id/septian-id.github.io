@@ -379,14 +379,7 @@
     
     <script>
       $(document).ready(function () {
-        $('.sidebar-menu').tree();
-
-        let sys = new controller;
-        var menu = sys.load_menu();
-        
-        menu.forEach(function(m){
-          $("#root_menu").append(`<li><a href="`+m.link+`"><i class="fa fa-circle-o"></i> `+m.title+`</a></li>`);
-        }); 
+        $('.sidebar-menu').tree(); 
       });
     </script>
   </body>
