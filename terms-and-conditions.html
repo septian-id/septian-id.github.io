@@ -386,25 +386,6 @@
         
         menu.forEach(function(m){
           $("#root_menu").append(`<li><a href="`+m.link+`"><i class="fa fa-circle-o"></i> `+m.title+`</a></li>`);
-        });
-
-        var contents = sys.load_contents();
-        var index = Math.floor(Math.random() * contents.length);
-
-          contents.forEach(function(c){
-          $("#post").prepend(`
-                      <div class="box box-warning">
-                          <div class="box-header with-border">
-                            <h4 class="box-title">`+c.title+`</h4>
-                          </div>
-
-                          <div class="box-body">
-                            <a href="`+c.link+`"><img src="`+c.thumbnail+`" width="100%"></a>
-                            <br><br>
-                            <center>`+c.description+`</center>
-                          </div>
-                        </div>
-          `);
         }); 
       });
     </script>
