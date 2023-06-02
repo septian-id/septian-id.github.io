@@ -9,6 +9,9 @@ class controller{
 				{"title":"Terms & Conditions", "link": this.hostname + "/terms-and-conditions.html"},
 				{"title":"Privacy Policy", "link": this.hostname + "/privacy-policy.html"},
 				{"title":"Disclaimer", "link": this.hostname + "/disclaimer.html"},
+				{"title":"Youtube", "link": "https://www.youtube.com/@stars-lab"},
+				{"title":"Facebook", "link": "https://facebook.com/yanzusa"},
+				{"title":"WhatsApp", "link": "https://wa.me/6281617849221"}
 			];
 		return this.data;
 	}
