@@ -37,10 +37,13 @@
         margin: 0px;
         padding:0px;
     }
-    .vcr{
-        page-break-inside: avoid;
-        
-    }
+    .vcrprint{
+		page-break-inside:auto;
+	}
+	.vcrprint div{
+		page-break-inside:avoid;
+		page-break-after:auto
+	}
   </style>
 </head>
 <body class="light-grey">
@@ -251,14 +254,14 @@
               
               $("#script").html("");
               $("#script").append(`<tr><td>/ip hotspot user;</td></tr>`);
-              var html = `<div class="row">`;
+              var html = `<div class="row vcrprint">`;
               var num = 0;
               for(i=0; i<amount; i++){
                   num++;
                   if(mode=="1"){
                       var username = prefix+generateString(length);
                       var password = username;
-                      html += `<div class="vcr quarter padding-small">
+                      html += `<div class="quarter padding-small">
                       <table class="border voucher" style="width:100%">
                       <tr>
                           <td><b>`+server+`</b><span class="right">`+num+`</span></td>
@@ -277,7 +280,7 @@
                   }else{
                       var username = prefix+generateString(length);
                       var password = generateString(length);
-                      html += `<div class="vcr quarter padding-small">
+                      html += `<div class="quarter padding-small">
                       <table class="border voucher" style="width:100%">
                       <tr>
                           <td colspan="2"><b>`+server+`</b><span class="right">`+num+`</span></td>
