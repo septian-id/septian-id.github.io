@@ -1,318 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MIKROTIK EXPERT</title>
-  
-<meta name="title" content="MIKROTIK EXPERT - Voucher Generator">
-<meta name="description" content="Mikrotik hotspot voucher generator.">
-<meta name="keywords" content="mikrotik hotspot voucher generator, voucher generator, hotspot voucher generator, mikrotik expert">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
-
+  <title>STARS BILLING | Aplikasi Manajement WiFi Hotspot Berbasis Web.</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <meta name="description" content="STARS BILLING | adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." />
+  <meta name="keywords" content="starsbilling,mikrotik,voucher,routeros,api mikrotik,rtrwnet, rtrw/net,hotspot,mikrotik api" />
+  <meta http-equiv="expires" content="0">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Septian-ID | STARS BILLING : Aplikasi Billing Mikrotik">
+  <meta property="og:description" content="Septian-ID | STARS BILLING : adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik.">
+  <meta property="og:image" content="https://septian-id.github.io/images/stars-billing-v4-mikrotik.png">
+  <meta property="og:image:alt" content="Septian-ID | STARS BILLING : Aplikasi Billing Mikrotik">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://septian-id.github.io">
   <style>
-    html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-    .dark{
-      background: #1b1b1b;
-      color: #FFF;
-    }
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif; font-size: 16px}
     a{text-decoration: none;}
-    input{outline: none;}
-    div:target{
-      display: block;
-    }
-    #result{
-        line-height: 14px;
-        font-size: 12px;
-        padding:2px;
-        background: #1b1b1b;
-        color:#FFF;
-    }
-    #script *{
-        color:#fff;
-        font-size: 12px;
-        margin: 0px;
-        padding:0px;
-    }
-    .vcrprint{
-		page-break-inside:auto;
-	}
-	.vcrprint div{
-		page-break-inside:avoid;
-		page-break-after:always;
-	}
   </style>
 </head>
-<body class="light-grey">
-    <div id="print"></div>
-  <div id="form">
-  <!-- Top container -->
-  <div class="bar top deep-orange padding-small" style="z-index: 4;">
-    <button class="bar-item button hover-none hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> MIKROTIK EXPERT</button>
-  </div>
 
-  <!-- Sidebar/menu -->
-  <nav class="sidebar collapse animate-left card border-right dark" style="z-index:3;width:300px;" id="mySidebar"><br>
-    
-    <div class="bar-block">
-      <a href="#" class="bar-item button hide-large dark-grey hover-deep-orange" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-      <button onclick="window.location.href = 'index.html';" class="button dark block left-align">
-        <i class="fa fa-home fa-lg"></i> Home
-      </button>
 
-      <button onclick="myFunction('menu1')" class="button dark block left-align">
-        <i class="fa fa-bars fa-lg"></i> Produk
-      </button>
-      <div id="menu1" class="hide">
-        <a href="#" role="router" class="nav button block left-align"><i class="fa fa-arrow-right margin-left"></i> Template Mikrotik</a>
-        <a href="#" class="nav button block left-align"><i class="fa fa-arrow-right margin-left"></i> Billing Mikrotik</a>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+  and is wrapped around the whole page content, except for the footer in this example -->
+  <div class="w3-content" style="max-width:1400px">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-32"> 
+      <h1><b>STARS BILLING</b></h1>
+      <p>Aplikasi Manajemen WiFi Hotspot Berbasis <span class="w3-tag">WEB</span></p>
+    </header>
+
+    <!-- Grid -->
+    <div class="w3-row">
+
+      <!-- Blog entries -->
+      <div class="w3-col l8 s12">
+        <!-- Blog entry -->
+        <div class="w3-card-4 w3-margin w3-white">
+          <img src="images/stars-billing-v4-mikrotik.png" alt="stars billing v4 - aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." style="width:100%" class="w3-border">
+          <div class="w3-container">
+            <h3><b>STARS BILLING V4</b></h3>
+            <h5>Release Date, <span class="w3-opacity">November 7, 2023</span></h5>
+          </div>
+
+          <div class="w3-container">
+            <p>STARS BILLING adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik.</p>
+            <p>Stars Billing mempunyai beberapa fitur yang sangat berguna yang akan memudahkan anda dalam memanajemen pelanggan internet anda dan penjualan voucher hotspot.</p>
+            <p>Fitur yang tersedia adalah :</p>
+            <p>
+              <ul class="w3-ul">
+                <li></i> Manajemen laporan penjualan agen voucher, Untuk memudahkan anda mengetahui jumlah total penjualan masing-masing agen voucher anda. Anda juga dapat melakukan penyaringan data laporan penjualan berdasarkan kurun waktu yang anda inginkan, Sebagai contoh laporan penjualan tanggal 2023-11-01 sampai dengan tanggal 2023-12-10.<br>
+                  Selain itu, Anda juga dapat melakukan pengecekan status kode voucher tertentu apakah statusnya belum digunakan, Sudah digunakan tapi sedang offline, Sudah Kadaluarsa atau Sedang aktif digunakan.
+                </li>
+                <li>
+                  Aplikasi ini dapat anda gunakan secara online menggunakan layanan web hosting atau secara offline terinstall dilaptop / komputer anda sendiri.<br>
+                  Aplikasi ini dapat anda gunakan pada RouterOS versi 6 dan 7 dengan performa yang lebih baik dan pengelolaan data yang lebih efisien, tidak menggunakan banyak penyimpanan data pada router anda, sehingga stabilitas dan kinerja router anda tetap optimal.
+                </li>
+              </ul>
+            </p>
+            <p>Jika anda ingin mencoba menggunakan aplikasi ini, Silahkan hubungi kami melalui <a href="https://wa.me/6281617849221?text=Saya%20ingin%20informasi%20lengkap%20mengenai%20aplikasi%20STARS%20BILLING"><b class="w3-text-green">WhatsApp »</b></a></p>
+          </div>
+        </div>
+        <hr>
       </div>
-  </div>
-</nav>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="overlay hide-large animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+      <!-- Introduction menu -->
+      <div class="w3-col l4">
+        <!-- About Card -->
+        <div class="w3-card w3-margin w3-margin-top">
+          <center><img src="images/septian-id.png" style="width:100px; height:100px;" class="w3-circle w3-margin-top w3-margin-bottom"></center>
+          <div class="w3-container w3-white">
+            <h4><b>Septian Harun</b></h4>
+            <p>Hi, saya septian. Saya membantu membangun situs web, mengembangkan bisnis, besar dan kecil, Jasa teknisi telekomunikasi, Setting MikroTik dan lainnya, Jika itu yang Anda inginkan, <a href="https://wa.me/6281617849221"><b class="w3-text-green">hubungi saya</b></a></p>
+          </div>
+        </div><hr>
 
-<!-- !PAGE CONTENT! -->
-<div class="main" style="margin-left:300px;margin-top:43px;">
-
-  <!-- Header -->
-  <header class="container" style="padding-top:22px">
-    <h5><b><i class="fa fa-home"></i> Voucher Generator</b></h5>
-  </header>
-  
-  
-  <div class="container text-black">
-      Nama Hotspot
-      <input id="server" class="input border round border-green margin-bottom">
-      Nama Profile<br>
-      <span class="small">Nama profile harus sama dengan yang ada di mikrotik.</span>
-      <input id="profile" class="input border border-green round margin-bottom" placeholder="Ex: 3 JAM">
-      Harga Voucher
-      <input id="price" class="input border round border-green margin-bottom">
-      Jumlah Voucher
-      <select id="amount" class="select white border round margin-bottom"></select>
-      
-      Login Mode
-      <select id="mode" class="select white border border-green round margin-bottom">
-          <option value="1">Username = Password</option>
-          <option value="2">Username & Password</option>
-      </select>
-      
-      
-      Prefix (Optional)
-      <input id="prefix" class="input border border-green round margin-bottom">
-      Characters
-      <select id="char" class="select white border border-green round margin-bottom">
-          <option value="1">ABCDEF</option>
-          <option value="2">123456</option>
-          <option value="3">ABC123</option>
-          <option value="4">abcdef</option>
-          <option value="5">abc123</option>
-          <option value="6">ab12CD</option>
-      </select>
-      
-      Panjang Kode
-      <select id="length" class="select white border border-green round margin-bottom">
-          <option value="3">3 Characters</option>
-          <option value="4">4 Characters</option>
-          <option value="5">5 Characters</option>
-          <option value="6">6 Characters</option>
-      </select>
-      
-      Comment (Optional)
-      <input id="comment" class="input border border-green round margin-bottom">
-      <button id="generate" class="button block green border border-green round margin-top margin-bottom">Generate</button>
-      <br><br>
-      
-      <button id="btn_print" class="button blue border border-blue margin-bottom">Print</button> (Copy->Paste to terminal)
-      <div id="result" class="margin-bottom border responsive padding-small">
-          <table width="100%" id="script"></table>
+        <!-- Posts -->
+        <div class="w3-card w3-margin">
+          <div class="w3-container w3-padding">
+            <h4>Kontak Saya</h4>
+          </div>
+          <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+              <img src="images/whatsapp.png" alt="septian-id WhatsApp" class="w3-left w3-margin-right" style="width:50px">
+              <span class="w3-large">WhatsApp</span><br>
+              <span>081617849221</span>
+            </li>  
+          </ul>
+        </div>
+        <hr> 
+        <!-- END Introduction Menu -->
       </div>
+
+      <!-- END GRID -->
+    </div><br>
+
+    <!-- END w3-content -->
   </div>
-</div>
-</div>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script>
-  var mySidebar = document.getElementById("mySidebar");
-  var overlayBg = document.getElementById("myOverlay");
-  function w3_open() {
-    if (mySidebar.style.display === 'block') {
-      mySidebar.style.display = 'none';
-      overlayBg.style.display = "none";
-    } else {
-      mySidebar.style.display = 'block';
-      overlayBg.style.display = "block";
-    }
-  }
 
-// Close the sidebar with the close button
-  function w3_close() {
-    mySidebar.style.display = "none";
-    overlayBg.style.display = "none";
-  }
-
-  function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("show") == -1) {
-      x.className += " show";
-      x.previousElementSibling.className = 
-      x.previousElementSibling.className.replace("dark", "deep-orange");
-    } else { 
-      x.className = x.className.replace(" show", "");
-      x.previousElementSibling.className = 
-      x.previousElementSibling.className.replace("deep-orange", "dark");
-    }
-  }
-
-  function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-  function checkCookie() {
-    let address = getCookie("address");
-    if (address != "") {
-     //alert("Welcome again " + username);
-    } else {
-      window.location.href = "login.html";
-      /*
-      username = prompt("Please enter your name:", "");
-      if (username != "" && username != null) {
-        setCookie("username", username, 365);
-      }
-      */
-    }
-  }
-
-  function number_format(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  
-  var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  function generateString(length) {
-      let result = '';
-      const charactersLength = characters.length;
-      for ( let i = 0; i < length; i++ ) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
-          
-      }
-      return result;
-  }
-  
-  $(document).ready(function(){
-      for(x=1; x<501; x++){
-          $("#amount").append(`<option value="`+x+`">`+x+`</option>`);
-      }
-      $("#generate").click(function(){
-          if($("#profile").val()==""){
-              $("#profile").focus();
-              $("#profile").removeClass("border-green");
-              $("#profile").addClass("border-red");
-          }
-          else{
-              var profile = $("#profile").val();
-              var length = $("#length").val();
-              var prefix = $("#prefix").val();
-              var amount = $("#amount").val();
-              var mode = $("#mode").val();
-              var comment = $("#comment").val();
-              var server = $("#server").val();
-              var price = $("#price").val();
-              if($("#char").val()=="1"){
-                  characters ='ABCDEFGHIJKLMNPQRSTUVWXYZ';
-              }else if($("#char").val()=="2"){
-                  characters ='1234567890';
-              }else if($("#char").val()=="3"){
-                  characters ='ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
-              }else if($("#char").val()=="4"){
-                  characters ='abcdefghijklmnpqrstuvwxyz';
-              }else if($("#char").val()=="5"){
-                  characters = 'abcdefghijklmnpqrstuvwxyz123456789';
-              }else{
-                  characters = 'abcdefghijklmnpqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-              }
-              
-              $("#script").html("");
-              $("#script").append(`<tr><td>/ip hotspot user;</td></tr>`);
-              var html = `<div class="row vcrprint">`;
-              var num = 0;
-              for(i=0; i<amount; i++){
-                  num++;
-                  if(mode=="1"){
-                      var username = prefix+generateString(length);
-                      var password = username;
-                      html += `<div class="quarter padding-small">
-                      <table class="border voucher" style="width:100%">
-                      <tr>
-                          <td><b>`+server+`</b><span class="right">`+num+`</span></td>
-                      </tr>
-                      <tr>
-                          <td align="center">Kode Voucher</td>
-                      </tr>
-                      <tr>
-                          <td class="border" align="center">`+username+`</td>
-                      </tr>
-                      <tr>
-                          <td>`+profile+`<span class="right">`+price+`</span></td>
-                      </tr>
-                      </table>
-                      </div>`;
-                  }else{
-                      var username = prefix+generateString(length);
-                      var password = generateString(length);
-                      html += `<div class="quarter padding-small">
-                      <table class="border voucher" style="width:100%">
-                      <tr>
-                          <td colspan="2"><b>`+server+`</b><span class="right">`+num+`</span></td>
-                      </tr>
-                      <tr>
-                          <td colspan="2" align="center">Kode Voucher</td>
-                      </tr>
-                      <tr>
-                          <td class="border" align="center">`+username+`</td>
-                          <td class="border" align="center">`+password+`</td>
-                      </tr>
-                      <tr>
-                          <td colspan="2">`+profile+`<span class="right">`+price+`</span></td>
-                      </tr>
-                      </table>
-                      </div>`;
-                  }
-                  console.log(username + "/" + password);
-                  $("#script").append(`<tr><td nowrap>add name="`+username+`" password="`+password+`" profile="`+profile+`" comment="`+comment+`";</td></tr>`);
-              }
-              $("#print").html(html);
-              window.location.href = "#result";
-          }
-      });
-      
-      $("#btn_print").click(function(){
-          $("#form").hide();
-          $("#print").show();
-          print();
-      });
-  });
-</script>
+  <!-- Footer -->
+  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
 
 </body>
 </html>
