@@ -4,9 +4,9 @@
   <title>STARS BILLING | Aplikasi Manajement WiFi Hotspot Berbasis Web.</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
   <meta name="description" content="STARS BILLING | adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." />
   <meta name="keywords" content="starsbilling,mikrotik,voucher,routeros,api mikrotik,rtrwnet, rtrw/net,hotspot,mikrotik api" />
   <meta http-equiv="expires" content="0">
@@ -18,81 +18,86 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://septian-id.github.io">
   <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif; font-size: 16px}
+    * {font-family: "Ubuntu", sans-serif; font-size: 16px}
     a{text-decoration: none;}
   </style>
 </head>
 
 
-<body class="w3-light-grey">
+<body class="light-grey">
 
-<!-- w3-content defines a container for fixed size centered content, 
+<!-- content defines a container for fixed size centered content, 
   and is wrapped around the whole page content, except for the footer in this example -->
-  <div class="w3-content" style="max-width:1400px">
+  <div class="content" style="max-width:1400px">
 
     <!-- Header -->
-    <header class="w3-container w3-center w3-padding-32"> 
+    <header class="container center padding-32"> 
       <h1><b>STARS BILLING</b></h1>
-      <p>Aplikasi Manajemen WiFi Hotspot Berbasis <span class="w3-tag">WEB</span></p>
+      <p>Aplikasi Manajemen WiFi Hotspot Berbasis <span class="tag">WEB</span></p>
     </header>
 
     <!-- Grid -->
-    <div class="w3-row">
+    <div class="row">
 
       <!-- Blog entries -->
-      <div class="w3-col l8 s12">
+      <div class="col l8 s12">
         <!-- Blog entry -->
-        <div class="w3-card-4 w3-margin w3-white">
-          <img src="images/stars-billing-v4-mikrotik.png" alt="stars billing v4 - aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." style="width:100%" class="w3-border">
-          <div class="w3-container">
+        <div class="card-4 margin white">
+          <img src="images/stars-billing-v4-mikrotik.png" alt="stars billing v4 - aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." style="width:100%" class="border">
+          <div class="container">
             <h3><b>STARS BILLING V4</b></h3>
-            <h5>Release Date, <span class="w3-opacity">November 7, 2023</span></h5>
+            <h5>Release Date, <span class="opacity">November 7, 2023</span></h5>
           </div>
 
-          <div class="w3-container">
+          <div class="container">
             <p>STARS BILLING adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik.</p>
             <p>Stars Billing mempunyai beberapa fitur yang sangat berguna yang akan memudahkan anda dalam memanajemen pelanggan internet anda dan penjualan voucher hotspot.</p>
             <p>Fitur yang tersedia adalah :</p>
             <p>
-              <ul class="w3-ul">
-                <li></i> Manajemen laporan penjualan agen voucher, Untuk memudahkan anda mengetahui jumlah total penjualan masing-masing agen voucher anda. Anda juga dapat melakukan penyaringan data laporan penjualan berdasarkan kurun waktu yang anda inginkan, Sebagai contoh laporan penjualan tanggal 2023-11-01 sampai dengan tanggal 2023-12-10.<br>
-                  Selain itu, Anda juga dapat melakukan pengecekan status kode voucher tertentu apakah statusnya belum digunakan, Sudah digunakan tapi sedang offline, Sudah Kadaluarsa atau Sedang aktif digunakan.
-                </li>
-                <li>
-                  Aplikasi ini dapat anda gunakan secara online menggunakan layanan web hosting atau secara offline terinstall dilaptop / komputer anda sendiri.<br>
-                  Aplikasi ini dapat anda gunakan pada RouterOS versi 6 dan 7 dengan performa yang lebih baik dan pengelolaan data yang lebih efisien, tidak menggunakan banyak penyimpanan data pada router anda, sehingga stabilitas dan kinerja router anda tetap optimal.
-                </li>
+              <ul class="ul">
+                <li><i class="fa fa-cogs"></i><b> Sales Member</b> -> Daftar agen penjualan voucher.</li>
+                <li><i class="fa fa-cogs"></i><b> Sales Detail</b> -> Detail penjualan voucher masing-masing agen voucher.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Reporting</b> -> Filter data penjualan voucher berdasarkan periode tertentu.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Profile</b> -> Pengelolaan profile WiFi hotspot.</li>
+                <li><i class="fa fa-cogs"></i><b> Sales Member</b> -> Daftar agen penjualan voucher.</li>
+                <li><i class="fa fa-cogs"></i><b> Users</b> -> Pengelolaan voucher WiFi yang terdaftar di mikrotik.</li>
+                <li><i class="fa fa-cogs"></i><b> Active Users</b> -> Monitoring user hostspot yang sedang aktif.</li>
+                <li><i class="fa fa-cogs"></i><b> IP Bindings</b> -> Bypass / Blocking MAC Addrees tertentu.</li>
+                <li><i class="fa fa-cogs"></i><b> Check Status</b> -> Pengecekan status kode voucher tertentu apakah statusnya belum digunakan, Sudah digunakan tapi sedang offline, Sudah Kadaluarsa atau Sedang aktif digunakan.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Generate</b> -> Generate kode voucher dengan jumlah yang banyak.</li>
+                <li><i class="fa fa-cogs"></i><b> DHCP Leases</b> -> Monitoring perangkat yang terhubung ke jaringan.</li>
+                <li><i class="fa fa-cogs"></i><b> Scheduler</b> -> Monitoring masa aktif dan durasi voucher yang sedang digunakan.</li>
               </ul>
             </p>
-            <p>Jika anda ingin mencoba menggunakan aplikasi ini, Silahkan hubungi kami melalui <a href="https://wa.me/6281617849221?text=Saya%20ingin%20informasi%20lengkap%20mengenai%20aplikasi%20STARS%20BILLING"><b class="w3-text-green">WhatsApp »</b></a></p>
+            <p>Jika anda ingin mencoba menggunakan aplikasi ini, Silahkan hubungi kami melalui <a href="https://wa.me/6281617849221?text=Saya%20ingin%20informasi%20lengkap%20mengenai%20aplikasi%20STARS%20BILLING"><b class="text-green">WhatsApp »</b></a></p>
           </div>
         </div>
         <hr>
       </div>
 
       <!-- Introduction menu -->
-      <div class="w3-col l4">
+      <div class="col l4">
         <!-- About Card -->
-        <div class="w3-card w3-margin w3-margin-top">
-          <center><img src="images/septian-id.png" style="width:100px; height:100px;" class="w3-circle w3-margin-top w3-margin-bottom"></center>
-          <div class="w3-container w3-white">
+        <div class="card margin margin-top">
+          <center><img src="images/septian-id.png" style="width:100px; height:100px;" class="circle margin-top margin-bottom"></center>
+          <div class="container white">
             <h4><b>Septian Harun</b></h4>
-            <p>Hi, saya septian. Saya membantu membangun situs web, mengembangkan bisnis, besar dan kecil, Jasa teknisi telekomunikasi, Setting MikroTik dan lainnya, Jika itu yang Anda inginkan, <a href="https://wa.me/6281617849221"><b class="w3-text-green">hubungi saya</b></a></p>
+            <p>Hi, saya septian. Saya membantu membangun situs web, mengembangkan bisnis, besar dan kecil, Jasa teknisi telekomunikasi, Setting MikroTik dan lainnya, Jika itu yang Anda inginkan, <a href="https://wa.me/6281617849221"><b class="text-green">hubungi saya</b></a></p>
           </div>
         </div><hr>
 
         <!-- Posts -->
-        <div class="w3-card w3-margin">
-          <div class="w3-container w3-padding">
+        <div class="card margin">
+          <div class="container padding">
             <h4>Kontak Saya</h4>
           </div>
-          <ul class="w3-ul w3-hoverable w3-white">
-            <li class="w3-padding-16">
-              <img src="images/whatsapp.png" alt="septian-id WhatsApp" class="w3-left w3-margin-right" style="width:50px">
-              <span class="w3-large">WhatsApp</span><br>
+          <ul class="ul hoverable white">
+            <li class="padding-16">
+              <img src="images/whatsapp.png" alt="septian-id WhatsApp" class="left margin-right" style="width:50px">
+              <span class="large">WhatsApp</span><br>
               <span>081617849221</span>
             </li>
-            <li class="w3-padding-16 w3-center">
+            <li class="padding-16 center">
               <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
               <!-- Histats.com  START  (aync)-->
               <script type="text/javascript">var _Hasync= _Hasync|| [];
@@ -116,11 +121,11 @@
       <!-- END GRID -->
     </div><br>
 
-    <!-- END w3-content -->
+    <!-- END content -->
   </div>
 
   <!-- Footer -->
-  <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <footer class="container dark-grey padding-32 margin-top">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
 
