@@ -51,8 +51,8 @@
 				<div class="page margin-top" id="user">
 					<p align="center">Masuk menggunakan kode voucher.</p>
 					<form autocomplete="off" name="login" id="login_user" action="#" method="post">
-						<input type="hidden" name="dst" value="$(link-orig)" />
-						<input type="hidden" name="popup" value="true" />
+						<input type="hidden" id="dst" name="dst" value="" />
+						<input type="hidden" id="popup" name="popup" value="true" />
 						<input type="text" name="username" id="vcr_username" class="input border round border-green" placeholder="Username" required="required" />
 						<input type="hidden" name="password" id="vcr_password" required="required" />
 						<button id="btn_vcr" class="button block green round margin-top margin-bottom">Masuk</button>
@@ -107,9 +107,7 @@
 				</div>
 				<div class="page margin-top hide" id="admin">
 					<p align="center">Masuk menggunakan akun administrator.</p>
-					<form autocomplete="off" name="login" id="login_admin" action="#" method="post">
-						<input type="hidden" name="dst" value="$(link-orig)" />
-						<input type="hidden" name="popup" value="true" />
+					<form autocomplete="off" name="login" id="login_admin" action="#" method="get">
 						<input type="text" name="username" class="input border round border-blue" placeholder="Username" required="required" />
 						<input type="password" name="password" class="input border round border-blue margin-top" placeholder="Password" required="required" />
 						<button class="button block blue round margin-top margin-bottom">Masuk</button>
