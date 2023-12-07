@@ -259,6 +259,10 @@
 			document.getElementById('hotspot_name').innerHTML = name;
 			document.getElementById('login_user').setAttribute('action', link_login);
 			document.getElementById('login_admin').setAttribute('action', link_login);
+			if(error == ""){}
+			else{
+				toastr["error"](error, "Login failed.");
+			}
 		</script>
 
 		<!-- Histats.com  START  (aync)-->
