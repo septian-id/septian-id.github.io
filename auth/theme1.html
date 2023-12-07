@@ -43,10 +43,10 @@
 			</div>
 			<div class="padding-small">
 				<div class="row margin-top">
-					<div class="nav col s3 padding-small center border-left border-top border-right"><i class="fa fa-ticket"></i> User</div>
-					<div class="nav col s3 padding-small center border-bottom"><i class="fa fa-user"></i> Admin</div>
-					<div class="nav col s3 padding-small center border-bottom"><i class="fa fa-edit"></i> Daftar</div>
-					<div class="nav col s3 padding-small center border-bottom"><i class="fa fa-search"></i> Status</div>
+					<div class="nav col s4 padding-small center border-left border-top border-right"><i class="fa fa-ticket"></i> User</div>
+					<div class="nav col s4 padding-small center border-bottom"><i class="fa fa-user"></i> Admin</div>
+					<div class="nav col s4 padding-small center border-bottom"><i class="fa fa-edit"></i> Daftar</div>
+					<!-- <div class="nav col s3 padding-small center border-bottom"><i class="fa fa-search"></i> Status</div> -->
 				</div>
 				<div class="page margin-top" id="user">
 					<p align="center">Masuk menggunakan kode voucher.</p>
@@ -70,7 +70,6 @@
 					    <span class="badge demo border transparent hover-white" onclick="currentDiv(3)"></span>
 					  </div>
 					</div>
-					<!--
 					<div class="row margin-bottom">
 						<div class="col s4 center" style="padding: 2px">
 							<div class="border round padding-small pale-yellow">
@@ -103,7 +102,6 @@
 							</div>
 						</div>
 					</div>
-					-->
 				</div>
 				<div class="page margin-top hide" id="admin">
 					<p align="center">Masuk menggunakan akun administrator.</p>
@@ -116,6 +114,7 @@
 				<div class="page margin-top hide" id="admin">
 					<p align="center">Mohon maaf, Saat ini fitur pendaftaran akun member sedang tidak aktif. Silahkan kembali lagi nanti.</p>
 				</div>
+				<!--
 				<div class="page margin-top hide" id="check">
 					<p align="center">Jika anda tidak dapat masuk, Silahkan periksa status akun anda.</p>
 					<form action="http://hotspot-api.free.nf/stars-api/" method="get" autocomplete="off">
@@ -124,6 +123,7 @@
 						<button type="submit" name="action" id="btn_check_status" value="check_status" class="button block red round margin-top margin-bottom">Check Status</button>
 					</form>
 				</div>
+				-->
 			</div>
 		</div>
 		<script type="text/javascript">
@@ -164,6 +164,7 @@
 		      });
 		    }
   			
+  			/*
   			document.getElementById("btn_check_status").addEventListener('click', function(){
   				var txt_check_status = document.getElementById("txt_check_status");
   				if(txt_check_status.value==""){}
@@ -171,7 +172,8 @@
   					toastr["info"]("Checking username " + txt_check_status.value, "Please wait.");
   				}
   			});
-
+			*/
+			
   			var slideIndex = 1;
 			showDivs(slideIndex);
 
