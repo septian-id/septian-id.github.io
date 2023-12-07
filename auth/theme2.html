@@ -14,9 +14,10 @@
 	</div>
 	<script type="text/javascript">
 		var username = document.getElementById("username");
-		var password = document.getElementById("password");
 		var login = document.getElementById("login");
+
 		var url = new URL(window.location);
+
 		var name = url.searchParams.get('name');
 		var mac = url.searchParams.get('mac');
 		var ip = url.searchParams.get('ip');
@@ -31,16 +32,11 @@
 			alert(error);
 		}
 
-		var url = '';
-		function setkey(){
-			url = `${link_login}?username=${username.value}&password=${username.value}`
-		}
-		username.onkeyup = setkey;
-
 		document.getElementById('login').addEventListener('click', function(){
 			if(url == ''){
 				username.focus();
 			}else{
+				var url = `${link_login}?username=${username.value}&password=${username.value}`;
 				window.location.href = url;
 			}
 		});
