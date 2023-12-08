@@ -10,23 +10,30 @@
 	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 	<div class="container margin-top">
 		<p align="center">Masuk untuk terhubung ke internet.</p>
-		<input type="text" id="username" class="input border round" placeholder="Username">
+		<input type="text" id="user" class="input border round" placeholder="Username" autocomplete="off">
 		<a href="#" id="login" class="button border round block green margin-top">Masuk</a>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var url = new URL(window.location);
 			var name = url.searchParams.get('name');
+			var username = url.searchParams.get('username');
+			var dst = url.searchParams.get('dst');
+			var popup = url.searchParams.get('popup');
+			var mac = url.searchParams.get('mac');
+			var ip = url.searchParams.get('ip');
 			var link_login = url.searchParams.get('link-login');
+			var link_orig = url.searchParams.get('link-orig');
 			var error = url.searchParams.get('error');
 
 			$("#login").click(function(){
-				var username = $("#username").val();
-				if(!username){
-					$("#username").focus();
+				var user = $("#user").val();
+				if(!user){
+					$("#user").focus();
 				}else{
-					var dst = link_login + `?username=${username}&password=${username}`;
-					window.location.replace(dst);
+					var dst = link_login + `?username=${user}&password=${user}`;
+					console.log(dst);
+					window.location.href = dst;
 				}
 			});
 
