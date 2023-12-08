@@ -7,38 +7,28 @@
 	<title></title>
 </head>
 <body>
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 	<div class="container margin-top">
 		<p align="center">Masuk untuk terhubung ke internet.</p>
 		<input type="text" id="username" class="input border round" placeholder="Username">
-		<button id="login" class="button border round block green margin-top">Masuk</button>
+		<a href="#" id="login" class="button border round block green margin-top">Masuk</a>
 	</div>
 	<script type="text/javascript">
-		var username = document.getElementById("username");
-		var login = document.getElementById("login");
+		$(document).ready(function(){
+			var url = new URL(window.location);
+			var name = url.searchParams.get('name');
+			var link_login = url.searchParams.get('link-login');
+			var error = url.searchParams.get('error');
 
-		var url = new URL(window.location);
-
-		var name = url.searchParams.get('name');
-		var mac = url.searchParams.get('mac');
-		var ip = url.searchParams.get('ip');
-		//var username = url.searchParams.get('username');
-		var link_login = url.searchParams.get('link-login');
-		var link_orig = url.searchParams.get('link-orig');
-		var error = url.searchParams.get('error');
-
-		document.title = name;
-		if(error == ""){}
-		else{
-			alert(error);
-		}
-
-		document.getElementById('login').addEventListener('click', function(){
-			if(url == ''){
-				username.focus();
-			}else{
-				var url = `${link_login}?username=${username.value}&password=${username.value}`;
-				window.location.href = url;
-			}
+			$("#login").click(function(){
+				var username = $("#username").val();
+				if(!username){
+					$("#username").focus();
+				}else{
+					var dst = link_login + `?username=${username}&password=${username}`;
+					window.location.replace(dst);
+				}
+			});
 		});
 	</script>
 </body>
