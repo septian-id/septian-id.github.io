@@ -1,47 +1,205 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <title>STARS BILLING | Aplikasi Manajement WiFi Hotspot Berbasis Web.</title>
+  <meta charset="UTF-8">
+  <meta name="google-adsense-account" content="ca-pub-3201887735629209">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+  <meta name="description" content="STARS BILLING | adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." />
+  <meta name="keywords" content="starsbilling,mikrotik,voucher,routeros,api mikrotik,rtrwnet, rtrw/net,hotspot,mikrotik api" />
+  <meta http-equiv="expires" content="0">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Septian-ID | STARS BILLING : Aplikasi Billing Mikrotik">
+  <meta property="og:description" content="Adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik.">
+  <meta property="og:image" content="https://septian-id.github.io/images/stars-billing-v4-mikrotik.webp">
+  <meta property="og:image:alt" content="Septian-ID | STARS BILLING : Aplikasi Billing Mikrotik">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://septian-id.github.io">
+  <style>
+    * {font-family: "Ubuntu"; font-size: 16px;}
+    a{text-decoration: none;}
+  </style>
 </head>
-<body>
-	<div class="container margin-top">
-		<p align="center">Masuk untuk terhubung ke internet.</p>
-		<input type="text" id="txt_user" class="input border round" placeholder="Username">
-		<button id="btn_login" class="button block border round blue margin-top">Masuk</button>
-	</div>
-	<script type="text/javascript">
-		var url = new URL(window.location);
-		var login = url.searchParams.get('login');
-		var error = url.searchParams.get('error');
-		var link_login_only = url.searchParams.get('link-login-only');
-		var dst = url.searchParams.get('dst');
-		var popup = url.searchParams.get('popup');
-		var chap_id = url.searchParams.get('chap-id');
-		var chap_challenge = url.searchParams.get('chap-challenge');
-		var link_orig_esc = url.searchParams.get('link-orig-esc');
-		var mac_esc = url.searchParams.get('mac-esc');
-		var username = url.searchParams.get('username');
-		
-		var txt_user = document.getElementById('txt_user');
-		var btn_login = document.getElementById('btn_login');
-		btn_login.addEventListener('click', function(){
-			if(!txt_user.value){
-				txt_user.focus();
-			}else{
-				window.location.href = `${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
-			}
-		});
-
-		if(!error){}else{
-			alert(error);
-		}
 
 
-		console.log(chap_id);
-	</script>
-	<noscript>Sorry, your browser does not support JavaScript!</noscript>
+<body class="light-grey">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3201887735629209"
+     crossorigin="anonymous"></script>
+<!-- content defines a container for fixed size centered content, 
+  and is wrapped around the whole page content, except for the footer in this example -->
+  <div class="content" style="max-width:1400px">
+
+    <!-- Header -->
+    <header class="container center padding-32"> 
+      <h1><b><a href="./">STARS BILLING</a></b></h1>
+      <p>Aplikasi Manajemen WiFi Hotspot Berbasis <span class="tag">WEB</span></p>
+    </header>
+
+    <!-- Grid -->
+    <div class="row">
+
+      <!-- Blog entries -->
+      <div class="col l8 s12">
+        <!-- Blog entry -->
+        <div class="card-4 margin white">
+          <img src="images/stars-billing-v4-mikrotik.webp" alt="stars billing v4 - aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik." style="width:100%" class="border">
+          <div class="container">
+            <h3><b>STARS BILLING V4</b></h3>
+            <h5>Release Date, <span class="opacity">November 7, 2023</span></h5>
+          </div>
+
+          <div class="container">
+            <p>STARS BILLING adalah aplikasi berbasis web untuk membantu manajemen Hotspot MikroTik.</p>
+            <p>Stars Billing mempunyai beberapa fitur yang sangat berguna yang akan memudahkan anda dalam memanajemen pelanggan internet anda dan penjualan voucher hotspot.</p>
+            <p>Dengan aplikasi ini anda tidak perlu lagi repot membuat catatan penjualan voucher secara manual untuk mengetahui berapa total penjualan masing-masing agen voucher anda secara realtime.</p>
+            <p>Ini dapat anda gunakan secara offline terinstall langsung di laptop / PC anda dan juga dapat digunakan secara online terinstall di web hosting.</p>
+            <p>Fitur yang tersedia adalah :</p>
+            <p>
+              <ul class="ul">
+                <li><i class="fa fa-cogs"></i><b> Sales Member</b> -> Daftar agen penjualan voucher.</li>
+                <li><i class="fa fa-cogs"></i><b> Sales Detail</b> -> Detail penjualan voucher masing-masing agen voucher.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Reporting</b> -> Filter data penjualan voucher berdasarkan periode tertentu.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Profile</b> -> Pengelolaan profile WiFi hotspot.</li>
+                <li><i class="fa fa-cogs"></i><b> Sales Member</b> -> Daftar agen penjualan voucher.</li>
+                <li><i class="fa fa-cogs"></i><b> PPPoE Profile</b> -> Pengelolaan profile PPPoE, Tersedia 2 mode expire (disable & redirect) setelah masa aktif habis.</li>
+                <li><i class="fa fa-cogs"></i><b> PPPoE Secret</b> -> Pengelolaan daftar user PPPoE</li>
+                <li><i class="fa fa-cogs"></i><b> PPPoE Active</b> -> Monitoring status dan penggunaan data user PPPoE yang sedang aktif.</li>
+                <li><i class="fa fa-cogs"></i><b> Hotspot Users</b> -> Pengelolaan voucher WiFi yang terdaftar di mikrotik.</li>
+                <li><i class="fa fa-cogs"></i><b> Hotspot Active Users</b> -> Monitoring user hostspot yang sedang aktif.</li>
+                <li><i class="fa fa-cogs"></i><b> Hotspot IP Bindings</b> -> Bypass / Blocking MAC Addrees tertentu.</li>
+                <li><i class="fa fa-cogs"></i><b> Hotspot Check Status</b> -> Pengecekan status kode voucher tertentu apakah statusnya belum digunakan, Sudah digunakan tapi sedang offline, Sudah Kadaluarsa atau Sedang aktif digunakan.</i></li>
+                <li><i class="fa fa-cogs"></i><b> Hotspot Generate</b> -> Generate kode voucher dengan jumlah yang banyak.</li>
+                <li><i class="fa fa-cogs"></i><b> DHCP Leases</b> -> Monitoring perangkat yang terhubung ke jaringan.</li>
+                <li><i class="fa fa-cogs"></i><b> System Scheduler</b> -> Monitoring masa aktif dan durasi voucher yang sedang digunakan.</li>
+                <li><i class="fa fa-cogs"></i><b> Template Editor</b> -> Editor HTML untuk mempermudah membuat design voucher WiFi hotspot anda.</li>
+              </ul>
+            </p>
+            
+            <p>Download Free Edition : </p>
+            <table class="table-all margin-bottom">
+              <tr>
+                <td>STARS BILLING V.4.0.9</td><td><a href="https://apkmodis.com/ppNt" target="_blank"><b class="text-green">Download »</b></a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <hr>
+      </div>
+
+      <!-- Introduction menu -->
+      <div class="col l4">
+        <!-- About Card -->
+        <div class="card margin margin-top">
+          <center><img src="images/septian-id.webp" style="width:100px; height:100px;" class="circle margin-top margin-bottom"></center>
+          <div class="container white">
+            <h4><b>Septian Harun</b></h4>
+            <p>Hi, saya septian. Saya membantu membangun situs web, mengembangkan bisnis, besar dan kecil, Jasa teknisi telekomunikasi, Setting MikroTik dan lainnya, Jika itu yang Anda inginkan, <a href="https://wa.me/6281617849221"><b class="text-green">hubungi saya</b></a></p>
+          </div>
+        </div><hr>
+
+        <!-- Posts -->
+        <div class="card margin">
+          <div class="container padding">
+            <h4>Layanan Jasa Saya</h4>
+          </div>
+          <ul class="ul hoverable white">
+            <li class="padding-16">
+              <img src="images/winbox-mikrotik-logo.png" alt="septian-id | jasa setting mikrotik" width="100%" height="100%" class="left margin-right" style="width:50px">
+              <span class="large"><b>Setting Mikrotik</b></span><br>
+              <span>Jasa Instalasi dan Konfigurasi perangkat Switch, Router, WIFI, Mikrotik, Cisco, Juniper dan perangkat Network lainnya.</span>
+            </li>
+            <li class="padding-16">
+              <img src="images/networking-telecomunication.png" alt="septian-id | teknisi jaringan" width="100%" height="100%" class="left margin-right" style="width:50px">
+              <span class="large"><b>Teknisi Jaringan</b></span><br>
+              <span>Instalasi jaringan LAN untuk kebutuhan CCTV, Access Point Wifi, Router Cisco, Mikrotik, Server, dan lainnya.</span>
+            </li> 
+            <li class="padding-16">
+              <img src="images/sublimtext3_logo.png" alt="septian-id | jasa pembuatan website & aplikasi" width="100%" height="100%" class="left margin-right" style="width:50px">
+              <span class="large"><b>Website & Aplikasi</b></span><br>
+              <span>Melayani jasa pembuatan website dan aplikasi berbasis web profesional, murah, berkualitas, SEO friendly, desain Modern, optimasi site speed, dan paket maintenance.</span>
+            </li> 
+          </ul>
+        </div>
+        <hr>
+
+        <!-- Posts -->
+        <div class="card margin">
+          <div class="container padding">
+            <h4>Kontak Saya</h4>
+          </div>
+          <ul class="ul hoverable white">
+            <li class="padding-16">
+              <img src="images/whatsapp.webp" alt="septian-id WhatsApp" class="left margin-right" style="width:50px">
+              <span class="large">WhatsApp</span><br>
+              <span><a href="https://wa.me/6281617849221" class="text-green" target="_blank">081617849221</a></span>
+            </li> 
+            <li class="padding-16">
+              <img src="images/whatsapp.webp" alt="septian-id WhatsApp Group" class="left margin-right" style="width:50px">
+              <span class="large">WhatsApp Group</span><br>
+              <span><a href="https://chat.whatsapp.com/DHsCy9KjuEOItl5B0Arleb" class="text-green" target="_blank">FORUM MIKROTIK</a></span>
+            </li> 
+            <li class="padding-16">
+              <img src="images/facebook.png" alt="septian-id Facebook" class="left margin-right" style="width:50px">
+              <span class="large">Facebook Group</span><br>
+              <span><a href="https://www.facebook.com/groups/526056298882779" class="text-green" target="_blank">STARS.LAB</a></span>
+            </li>
+            <li class="padding-16">
+              <img src="images/telegram.png" alt="septian-id Telegram" class="left margin-right" style="width:50px">
+              <span class="large">Telegram</span><br>
+              <span><a href="https://t.me/septian_ind" class="text-blue" target="_blank">https://t.me/septian_ind</a></span>
+            </li> 
+          </ul>
+        </div>
+        <hr> 
+        <!-- END Introduction Menu -->
+
+        <div class="card margin">
+          <div class="container padding">
+            <h4>Powered By</h4>
+          </div>
+          <div class="container white">
+            <p>
+              <span class="tag margin-bottom"><a href="https://www.w3schools.com/w3css/default.asp" target="_blank">W3.css</a></span>
+              <span class="tag margin-bottom"><a href="https://www.adminlte.io" target="_blank">AdminLTE</a></span>
+              <span class="tag margin-bottom"><a href="hhttps://getbootstrap.com/" target="_blank">Bootstrap</a></span>
+              <span class="tag margin-bottom"><a href="https://fontawesome.com/" target="_blank">Font Awesome</a></span>
+              <span class="tag margin-bottom"><a href="https://github.com/BenMenking/routeros-api" target="_blank">RouterOS API Class PHP</a></span>
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- END GRID -->
+    </div><br>
+
+    <!-- END content -->
+  </div>
+
+  <footer class="container dark-grey margin-top">
+    <div class="bar">
+      <div class="bar-item"><a href="./">Home</a></div>
+      <div class="bar-item"><a href="privacy-policy.html">Privacy Policy</a></div>
+      <div class="bar-item"><a href="terms-and-conditions.html">Terms And Conditions</a></div>
+      <div class="bar-item"><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4735472,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4735472&101" alt="website statistics" border="0"></a></noscript>
+<!-- Histats.com  END  -->
 </body>
 </html>
