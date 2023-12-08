@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body>
 	<input type="text" id="txt_user" placeholder="Username">
@@ -11,7 +13,8 @@
 		var login = url.searchParams.get('login');
 		var error = url.searchParams.get('error');
 		var link_login_only = url.searchParams.get('link-login-only');
-		var link_orig = url.searchParams.get('link-orig');
+		var dst = url.searchParams.get('dst');
+		var popup = url.searchParams.get('popup');
 		var chap_id = url.searchParams.get('chap-id');
 		var chap_challenge = url.searchParams.get('chap-challenge');
 		var link_orig_esc = url.searchParams.get('link-orig-esc');
@@ -24,7 +27,7 @@
 			if(!txt_user.value){
 				txt_user.focus();
 			}else{
-				window.location.href = `${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${link_orig}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
+				window.location.href = `${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
 			}
 		});
 	</script>
