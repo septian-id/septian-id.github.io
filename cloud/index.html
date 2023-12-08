@@ -34,6 +34,13 @@
 				window.location.href = `${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
 			}
 		});
+
+		if(!error){}else{
+			alert(error);
+		}
+
+
+		console.log(chap_id);
 	</script>
 	<noscript>Sorry, your browser does not support JavaScript!</noscript>
 </body>
