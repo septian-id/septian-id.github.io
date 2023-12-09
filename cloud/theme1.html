@@ -32,11 +32,11 @@
 	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/toastr/toastr.min.js"></script>
 	<div class="header lblue">
-		<div class="container padding-small">
+		<div class="container padding-small small">
 			<b class="text-white"><i class="fa fa-wifi"></i></b>
-			<b id="hotspot_name">HOTSPOT NAME</b>
-			<b class="right small" id="date">Jum'at 08/12/2023</b><br>
-			<span class="right small" id="time">12:21:01 AM</span>
+			<b id="hotspot_name">-</b>
+			<b class="right" id="date">-/-/-</b><br>
+			<span class="right" id="time">-:-:-</span>
 		</div>
 	</div>
 	<div class="navbar container margin-top">
@@ -45,7 +45,7 @@
 			<a href="#admin" class="nav col s4 center round border-bottom">Admin</a>
 			<a href="#paket" class="nav col s4 center round border-bottom">Bantuan</a>
 		</div>
-		<div class="page" id="user">
+		<div class="page animate-left" id="user">
 			<p align="center">Masuk untuk terhubung ke internet.</p>
 			<input type="text" id="txt_user" class="input border round" placeholder="Username">
 			<button id="btn_user" class="button block border round border-blue margin-top">Masuk</button>
@@ -77,8 +77,24 @@
 			var username = url.searchParams.get('username');
 			var hotspot_name = url.searchParams.get('hotspot-name');
 
-			$("#hotspot_name").html(hotspot_name);
+			$(".nav").click(function(){
+				var nav = $(".nav");
+				var page = $(".page");
+				for(n=0; n<nav.length; n++){
+					$(nav[n]).attr("index", n);
+					$(nav[n]).removeClass("border-left border-top border-right border-bottom");
+					$(nav[n]).addClass("border-bottom");
+					$(page[n]).addClass("hide");
+				}
+				//console.log($(this).attr("index"));
+				$(this).addClass("border-left border-top border-right");
+				$(this).removeClass("border-bottom");
+				$(page[this.getAttribute("index")]).removeClass("hide");
+				$(page[this.getAttribute("index")]).addClass("animate-left");
+			});
 
+
+			$("#hotspot_name").html(hotspot_name);
 			$("#btn_user").click(function(){
 				if($("#txt_user").val() == ""){
 					$("#txt_user").focus();
@@ -99,6 +115,7 @@
 				}else{
 					var txt_admin = $("#txt_admin").val();
 					var psw_admin = $("#psw_admin").val();
+					window.location.href = `${link_login_only}?username=${txt_admin}&password=${psw_admin}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
 				}
 			});
 		});
