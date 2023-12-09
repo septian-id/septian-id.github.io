@@ -8,6 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/toastr/toastr.min.css">
 	<style type="text/css">
+		body{
+			margin: auto;
+			padding: 0px;
+			min-height: 100vh;
+		}
 		.header{
 			width:100%;
 			height:150px;
@@ -23,12 +28,10 @@
 		.lamber{background-image: linear-gradient(#ffc107, #fff);}
 		.lred{background-image: linear-gradient(#f44336, #fff);}
 		a{text-decoration: none;}
-		input{outline:none;}
-
-		
+		input{outline:none;}		
 	</style>
 </head>
-<body>
+<body class="topbar bottombar border-blue">
 	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/toastr/toastr.min.js"></script>
 	<div class="header lblue">
@@ -39,9 +42,9 @@
 	</div>
 	<div class="navbar container margin-top">
 		<div class="row">
-			<a href="#user" class="nav col s4 center round border-left border-top border-right">User</a>
-			<a href="#admin" class="nav col s4 center round border-bottom">Admin</a>
-			<a href="#paket" class="nav col s4 center round border-bottom">Bantuan</a>
+			<a href="#user" class="nav col s4 padding center round border-left border-top border-right"><i class="fa fa-ticket"></i> User</a>
+			<a href="#admin" class="nav col s4 padding center round border-bottom"><i class="fa fa-user"></i> Admin</a>
+			<a href="#paket" class="nav col s4 padding center round border-bottom"><i class="fa fa-life-buoy"></i> Bantuan</a>
 		</div>
 		<div class="page animate-left" id="user">
 			<p align="center">Masuk untuk terhubung ke internet.</p>
