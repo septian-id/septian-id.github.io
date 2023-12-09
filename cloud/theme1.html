@@ -57,13 +57,13 @@
 			<button id="btn_admin" class="button block border round border-blue margin-top">Masuk</button>
 		</div>
 		<div class="page hide" id="help">
-			<p align="center">Jika anda tidak dapat masuk, Silahkan periksa terlebih dahulu satatus akun anda.</p>
+			<p><b>Masa Aktif</b><br>Pastikan username / kode voucher anda masih aktif. Jika sudah kadaluarsa, anda dapat membelinya melalui agen voucher terdekat.</p>
+			<p><b>Login User</b><br>Klik tombol "User" dan ketik beberapa digit kode voucher anda setelah itu klik tombol "Masuk"</p>
 		</div>
 	</div>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			//`${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`
 			var url = new URL(window.location);
 			var login = url.searchParams.get('login');
 			var error = url.searchParams.get('error');
@@ -118,6 +118,8 @@
 					window.location.href = `${link_login_only}?username=${txt_admin}&password=${psw_admin}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
 				}
 			});
+
+			if(error !==""){toastr["error"](`${username} ${error}`);}
 		});
 
 
