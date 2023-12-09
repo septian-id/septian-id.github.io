@@ -35,8 +35,6 @@
 		<div class="container padding-small small">
 			<b class="text-white"><i class="fa fa-wifi"></i></b>
 			<b id="hotspot_name">-</b>
-			<b class="right" id="date">-/-/-</b><br>
-			<span class="right" id="time">-:-:-</span>
 		</div>
 	</div>
 	<div class="navbar container margin-top">
@@ -48,13 +46,27 @@
 		<div class="page animate-left" id="user">
 			<p align="center">Masuk untuk terhubung ke internet.</p>
 			<input type="text" id="txt_user" class="input border round" placeholder="Username">
-			<button id="btn_user" class="button block border round border-blue margin-top">Masuk</button>
+			<button id="btn_user" class="button block border round blue margin-top">Masuk</button>
+
+			<div id="prayer_time" class="margin-top small" style="display: none;">
+				<b id="date"></b>
+				<span id="time" class="right"></span>
+				<table class="table-all small topbar">
+					<tr>
+						<td>Fajr<br><span id="Fajr"></span></td>
+						<td>Dhuhr<br><span id="Dhuhr"></span></td>
+						<td>Ashr<br><span id="Ashr"></span></td>
+						<td>Maghrib<br><span id="Maghrib"></span></td>
+						<td>Isha<br><span id="Isha"></span></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div class="page hide" id="admin">
 			<p align="center">Masuk menggunakan akun administrator.</p>
 			<input type="text" id="txt_admin" class="input border round" placeholder="Username">
 			<input type="text" id="psw_admin" class="input border round margin-top" placeholder="Password">
-			<button id="btn_admin" class="button block border round border-blue margin-top">Masuk</button>
+			<button id="btn_admin" class="button block border round blue margin-top">Masuk</button>
 		</div>
 		<div class="page hide" id="help">
 			<p><b>Masa Aktif</b><br>Pastikan username / kode voucher anda masih aktif. Jika sudah kadaluarsa, anda dapat membelinya melalui agen voucher terdekat.</p>
@@ -120,6 +132,31 @@
 			});
 
 			if(error !==""){toastr["error"](`${username} ${error}`);}
+			var d = new Date();
+
+			var city_name = 'Jakarta';
+			var country_name = 'Indonesia';
+			
+			$.ajax({
+				type: 'GET',
+				url : 'https://api.aladhan.com/v1/calendarByCity/'+d.getFullYear()+'/'+d.getMonth()+'?city='+city_name+'&country='+country_name+'&method=2',
+				dataType: 'json',
+				success: function(json){
+					var i = 0;
+					json.data.forEach(function(j){
+						i++;
+						if(i == d.getDate()){
+							console.log(j);
+							$("#Fajr").html(j.timings.Fajr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Dhuhr").html(j.timings.Dhuhr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Ashr").html(j.timings.Asr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Maghrib").html(j.timings.Maghrib.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Isha").html(j.timings.Isha.replace(' (WIB)','').replace(' (WIT)',''));
+						}
+					});
+					$("#prayer_time").show();
+				}
+			});
 		});
 
 
