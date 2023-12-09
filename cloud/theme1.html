@@ -111,6 +111,7 @@
 				if($("#txt_user").val() == ""){
 					$("#txt_user").focus();
 					$("#txt_user").addClass("border-red");
+					toastr["error"]("Masukan kode voucher anda.");
 				}else{
 					var txt_user = $("#txt_user").val();
 					window.location.href = `${link_login_only}?username=${txt_user}&password=${txt_user}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
@@ -121,9 +122,11 @@
 				if($("#txt_admin").val() == ""){
 					$("#txt_admin").focus();
 					$("#txt_admin").addClass("border-red");
+					toastr["error"]("Masukan username anda.");
 				}else if($("#psw_admin").val() == ""){
 					$("#psw_admin").focus();
 					$("#psw_admin").addClass("border-red");
+					toastr["error"]("Password tidak boleh kosong.");
 				}else{
 					var txt_admin = $("#txt_admin").val();
 					var psw_admin = $("#psw_admin").val();
@@ -132,9 +135,14 @@
 			});
 
 			if(error !==""){toastr["error"](`${username} ${error}`);}
-			var d = new Date();
+			var visited = localStorage.getItem("visited");
+			if(visited == null){
+				toastr["info"]("Selamat datang di jaringan " + hotspot_name);
+				localStorage.setItem("visited","yes");
+			}
 
-			var city_name = 'Jakarta';
+			var d = new Date();
+			var city_name = 'Sukabumi';
 			var country_name = 'Indonesia';
 			
 			$.ajax({
