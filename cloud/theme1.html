@@ -49,7 +49,7 @@
 		</div>
 		<div class="page animate-left" id="user">
 			<p align="center">Masuk untuk terhubung ke internet.</p>
-			<input type="text" id="txt_user" class="input border round" placeholder="Username">
+			<input type="text" id="txt_user" class="input border round" placeholder="Username" autocomplete="off">
 			<button id="btn_user" class="button block border round blue margin-top">Masuk</button>
 
 			<div id="prayer_time" class="margin-top small" style="display: none;">
@@ -83,8 +83,8 @@
 		</div>
 		<div class="page hide" id="admin">
 			<p align="center">Masuk menggunakan akun administrator.</p>
-			<input type="text" id="txt_admin" class="input border round" placeholder="Username">
-			<input type="text" id="psw_admin" class="input border round margin-top" placeholder="Password">
+			<input type="text" id="txt_admin" class="input border round" placeholder="Username" autocomplete="off">
+			<input type="text" id="psw_admin" class="input border round margin-top" placeholder="Password" autocomplete="off">
 			<button id="btn_admin" class="button block border round blue margin-top">Masuk</button>
 		</div>
 		<div class="page hide" id="help">
@@ -124,6 +124,9 @@
 				$(page[this.getAttribute("index")]).addClass("animate-left");
 			});
 
+			$("#txt_user").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
+			$("#txt_admin").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
+			$("#psw_admin").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
 
 			$("#hotspot_name").html(hotspot_name);
 			$("title").html(hotspot_name + ' -> login');
