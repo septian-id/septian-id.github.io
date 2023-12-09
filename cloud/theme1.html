@@ -126,7 +126,8 @@
 
 
 			$("#hotspot_name").html(hotspot_name);
-			$("title").html(hotspot_name + ' -> login')
+			$("title").html(hotspot_name + ' -> login');
+
 			$("#btn_user").click(function(){
 				if($("#txt_user").val() == ""){
 					$("#txt_user").focus();
@@ -153,6 +154,7 @@
 					window.location.href = `${link_login_only}?username=${txt_admin}&password=${psw_admin}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
 				}
 			});
+
 
 			if(error !==""){toastr["error"](`${username} ${error}`);}
 			var visited = localStorage.getItem("visited");
