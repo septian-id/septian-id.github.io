@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/ubuntu.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/toastr/toastr.min.css">
+	<style type="text/css">
+		body{
+			margin: auto;
+			padding: 0px;
+			min-height: 100vh;
+			max-width: 600px;
+			font-family: 'Ubuntu';
+		}
+		.header{
+			width:100%;
+			min-height:150px;
+			left:-3%;
+			border-top-left-radius:0px;
+			border-top-right-radius:0px;
+			border-bottom-left-radius: 50% 20%;
+			border-bottom-right-radius: 50% 20%;
+			color: #FFF;
+		}
+		.lgreen{background-image: linear-gradient(#4caf50, #fff);}
+		.lblue{background-image: linear-gradient(#2196f3, #fff);}
+		.lamber{background-image: linear-gradient(#ffc107, #fff);}
+		.lred{background-image: linear-gradient(#f44336, #fff);}
+		a{text-decoration: none;}
+		input{outline:none;}		
+	</style>
+</head>
+<body class="topbar bottombar card small text-gray border-blue">
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/toastr/toastr.min.js"></script>
+	<div class="header lblue" id="header">
+		<div class="container padding-small small">
+			<b class="text-white"><i class="fa fa-wifi"></i></b>
+			<b id="hotspot_name">-</b>
+		</div>
+	</div>
+
+	<div class="container margin-top">
+		<div class="row">
+			<a href="#user" class="nav col s4 padding-small center round border-left border-top border-right"><i class="fa fa-ticket"></i> User</a>
+			<a href="#admin" class="nav col s4 padding-small center round border-bottom"><i class="fa fa-user"></i> Admin</a>
+			<a href="#help" class="nav col s4 padding-small center round border-bottom"><i class="fa fa-life-buoy"></i> Bantuan</a>
+		</div>
+		<div class="page animate-left" id="user">
+			<p align="center">Masuk untuk terhubung ke internet.</p>
+			<input type="text" id="txt_user" class="input border round" placeholder="Username" autocomplete="off">
+			<button id="btn_user" class="button block border round margin-top blue border-blue">Masuk</button>
+
+			<div id="prayer_time" class="margin-top small" style="display: none;">
+				<b id="date"></b>
+				<b id="time" class="right"></b>
+				<table class="table-all small topbar">
+					<tr>
+						<td class="tiny center"><b>Fajr</b><br><span id="Fajr"></span></td>
+						<td class="tiny center"><b>Dhuhr</b><br><span id="Dhuhr"></span></td>
+						<td class="tiny center"><b>Ashr</b><br><span id="Ashr"></span></td>
+						<td class="tiny center"><b>Maghrib</b><br><span id="Maghrib"></span></td>
+						<td class="tiny center"><b>Isha</b><br><span id="Isha"></span></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="margin-top small">
+				<div class="content display-container margin-bottom" style="max-width:800px">
+					<img class="mySlides animate-right" src="assets/images/1.jpg" style="width:100%">
+					<img class="mySlides animate-right" src="assets/images/2.jpg" style="width:100%">
+					<img class="mySlides animate-right" src="assets/images/3.jpg" style="width:100%">
+					<div class="center container section large text-white display-bottommiddle" style="width:100%">
+						<div class="left hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+						<div class="right hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+						<span class="badge demo border transparent hover-white" onclick="currentDiv(1)"></span>
+						<span class="badge demo border transparent hover-white" onclick="currentDiv(2)"></span>
+						<span class="badge demo border transparent hover-white" onclick="currentDiv(3)"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page hide" id="admin">
+			<p align="center">Masuk menggunakan akun administrator.</p>
+			<input type="text" id="txt_admin" class="input border round" placeholder="Username" autocomplete="off">
+			<input type="text" id="psw_admin" class="input border round margin-top" placeholder="Password" autocomplete="off">
+			<button id="btn_admin" class="button block border round margin-top green border-green">Masuk</button>
+		</div>
+		<div class="page hide" id="help">
+			<p><b>Masa Aktif</b><br>Pastikan username / kode voucher anda masih aktif. Jika sudah kadaluarsa, anda dapat membelinya melalui agen voucher terdekat.</p>
+			<p><b>Login User</b><br>Klik tombol "User" dan ketik beberapa digit kode voucher anda setelah itu klik tombol "Masuk"</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var url = new URL(window.location);
+			var login = url.searchParams.get('login');
+			var error = url.searchParams.get('error');
+			var link_login_only = url.searchParams.get('link-login-only');
+			var dst = url.searchParams.get('dst');
+			var popup = url.searchParams.get('popup');
+			var chap_id = url.searchParams.get('chap-id');
+			var chap_challenge = url.searchParams.get('chap-challenge');
+			var link_orig_esc = url.searchParams.get('link-orig-esc');
+			var mac_esc = url.searchParams.get('mac-esc');
+			var username = url.searchParams.get('username');
+			var hotspot_name = url.searchParams.get('hotspot-name');
+
+			$(".nav").click(function(){
+				var nav = $(".nav");
+				var page = $(".page");
+				for(n=0; n<nav.length; n++){
+					$(nav[n]).attr("index", n);
+					$(nav[n]).removeClass("border-left border-top border-right border-bottom");
+					$(nav[n]).addClass("border-bottom");
+					$(page[n]).addClass("hide");
+				}
+				//console.log($(this).attr("index"));
+				$(this).addClass("border-left border-top border-right");
+				$(this).removeClass("border-bottom");
+				$(page[this.getAttribute("index")]).removeClass("hide");
+				$(page[this.getAttribute("index")]).addClass("animate-left");
+				$("body").attr("class","");
+				$("#header").attr("class","");
+				switch(this.getAttribute("index")){
+					case "0":
+						$("body").addClass("topbar bottombar card small text-gray border-blue");
+						$("#header").addClass("header lblue");
+					break;
+					case "1":
+						$("body").addClass("topbar bottombar card small text-gray border-green");
+						$("#header").attr("class", "header lgreen");
+					break;
+					case "2":
+						$("body").addClass("topbar bottombar card small text-gray border-amber");
+						$("#header").attr("class", "header lamber");
+					break;
+				}
+			});
+
+			$("#txt_user").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
+			$("#txt_admin").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
+			$("#psw_admin").bind("cut copy paste",function(e) {e.preventDefault();toastr["error"]("Copy / Paste tidak diizinkan.");});
+
+			$("#hotspot_name").html(hotspot_name);
+			$("title").html(hotspot_name + ' -> login');
+
+			$("#btn_user").click(function(){
+				if($("#txt_user").val() == ""){
+					$("#txt_user").focus();
+					$("#txt_user").addClass("border-red");
+					toastr["error"]("Masukan kode voucher anda.");
+				}else{
+					var txt_user = $("#txt_user").val();
+					window.location.href = `${link_login_only}?username=${txt_user}&password=${txt_user}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
+				}
+			});
+
+			$("#btn_admin").click(function(){
+				if($("#txt_admin").val() == ""){
+					$("#txt_admin").focus();
+					$("#txt_admin").addClass("border-red");
+					toastr["error"]("Masukan username anda.");
+				}else if($("#psw_admin").val() == ""){
+					$("#psw_admin").focus();
+					$("#psw_admin").addClass("border-red");
+					toastr["error"]("Password tidak boleh kosong.");
+				}else{
+					var txt_admin = $("#txt_admin").val();
+					var psw_admin = $("#psw_admin").val();
+					window.location.href = `${link_login_only}?username=${txt_admin}&password=${psw_admin}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
+				}
+			});
+
+
+			if(error !==""){toastr["error"](`${username} ${error}`);}
+			var visited = localStorage.getItem("visited");
+			if(visited == null){
+				toastr["info"]("Selamat datang di jaringan " + hotspot_name);
+				localStorage.setItem("visited","yes");
+			}
+
+			var d = new Date();
+			var city_name = 'Sukabumi';
+			var country_name = 'Indonesia';
+			
+			$.ajax({
+				type: 'GET',
+				url : 'https://api.aladhan.com/v1/calendarByCity/'+d.getFullYear()+'/'+d.getMonth()+'?city='+city_name+'&country='+country_name+'&method=2',
+				dataType: 'json',
+				success: function(json){
+					var i = 0;
+					json.data.forEach(function(j){
+						i++;
+						if(i == d.getDate()){
+							console.log(j);
+							$("#Fajr").html(j.timings.Fajr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Dhuhr").html(j.timings.Dhuhr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Ashr").html(j.timings.Asr.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Maghrib").html(j.timings.Maghrib.replace(' (WIB)','').replace(' (WIT)',''));
+							$("#Isha").html(j.timings.Isha.replace(' (WIB)','').replace(' (WIT)',''));
+						}
+					});
+					$("#prayer_time").show();
+				}
+			});
+		});
+
+
+		function showTime() {
+			var a_p = "";
+			var today = new Date();
+			var curr_hour = today.getHours();
+			var curr_minute = today.getMinutes();
+			var curr_second = today.getSeconds();
+			if (curr_hour < 12) {
+				a_p = "AM";
+			} else {
+				a_p = "PM";
+			}
+			if (curr_hour == 0) {
+				curr_hour = 12;
+			}
+			if (curr_hour > 12) {
+				curr_hour = curr_hour - 12;
+			}
+			curr_hour = checkTime(curr_hour);
+			curr_minute = checkTime(curr_minute);
+			curr_second = checkTime(curr_second);
+			document.getElementById('time').innerHTML=curr_hour + ":" + curr_minute + ":" + curr_second + " " + a_p;
+		}
+
+		function checkTime(i) {
+			if (i < 10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+
+		setInterval(showTime, 500);
+
+		var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+		var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+		var date = new Date();
+		var day = date.getDate();
+		var month = date.getMonth();
+		var thisDay = date.getDay(),
+		thisDay = myDays[thisDay];
+		var yy = date.getYear();
+		var year = (yy < 1000) ? yy + 1900 : yy;
+		document.getElementById('date').innerHTML = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+	
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+
+		function currentDiv(n) {
+			showDivs(slideIndex = n);
+		}
+
+		function showDivs(n) {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			if (n > x.length) {slideIndex = 1}
+				if (n < 1) {slideIndex = x.length}
+					for (i = 0; i < x.length; i++) {
+						x[i].style.display = "none";  
+					}
+					for (i = 0; i < dots.length; i++) {
+						dots[i].className = dots[i].className.replace(" white", "");
+					}
+					x[slideIndex-1].style.display = "block";  
+					dots[slideIndex-1].className += " white";
+				}
+				setInterval(function(){
+					plusDivs(1);
+				},3000);
+	</script>
+	<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container margin-top">
+		<p align="center">Masuk untuk terhubung ke internet.</p>
+		<input type="text" id="txt_user" class="input border round" placeholder="Username">
+		<button id="btn_login" class="button block border round blue margin-top">Masuk</button>
+	</div>
+	<script type="text/javascript">
+		var url = new URL(window.location);
+		var login = url.searchParams.get('login');
+		var error = url.searchParams.get('error');
+		var link_login_only = url.searchParams.get('link-login-only');
+		var dst = url.searchParams.get('dst');
+		var popup = url.searchParams.get('popup');
+		var chap_id = url.searchParams.get('chap-id');
+		var chap_challenge = url.searchParams.get('chap-challenge');
+		var link_orig_esc = url.searchParams.get('link-orig-esc');
+		var mac_esc = url.searchParams.get('mac-esc');
+		var username = url.searchParams.get('username');
+		
+		var txt_user = document.getElementById('txt_user');
+		var btn_login = document.getElementById('btn_login');
+		btn_login.addEventListener('click', function(){
+			if(!txt_user.value){
+				txt_user.focus();
+			}else{
+				window.location.href = `${link_login_only}?username=${txt_user.value}&password=${txt_user.value}&link-orig=${dst}&chap-id=${chap_id}&chap-challenge=${chap_challenge}&link-orig-esc=${link_orig_esc}&mac-esc=${mac_esc}`;
+			}
+		});
+
+		if(!error){}else{
+			alert(error);
+		}
+
+
+		console.log(chap_id);
+	</script>
+	<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</body>
+</html>
