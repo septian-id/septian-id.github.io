@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NiceRadius</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/_all-skins.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link href="https://unpkg.com/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
+    <style type="text/css">
+        .tabulator{background: #FFF;}
+    </style>
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#" class="logo">
+                <span class="logo-mini"><b>N</b>RS</span>
+                <span class="logo-lg"><b>Nice</b>Radius</span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+            </nav>
+        </header>
 
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>User Name</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <form action="#" method="get" class="sidebar-form" autocomplete="off">
+                    <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                    </div>
+                </form>
+
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                        <a href="#">
+                          <i class="fa fa-tachometer"></i> <span>Dashboard</span>
+                            <span class="pull-right-container">
+                                <small class="label pull-right bg-green">Hot</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-wifi"></i> <span>Hotspot</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Profile</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Limitation</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+
+        <div class="content-wrapper">
+            <section class="content">
+                <a class="btn btn-success">Add New</a>
+                <div id="myTable" style="margin-top: 10px;"></div>
+            </section>
+        </div>
+
+        <div class="control-sidebar-bg"></div>
+        <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.slimscroll.min.js"></script>
+        <script src="js/fastclick.js"></script>
+        <script src="js/adminlte.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.sidebar-menu').tree();
+                var table = new Tabulator('#myTable', {
+                    layout:"fitDataStretch",
+                    columns: [
+                        {
+                            "title": "ID",
+                            "field":"id",
+                            "formatter": "html"
+                        },
+                        {
+                            "title": "Name",
+                            "field": "name",
+                            "formatter": "html"
+                        },
+                        {
+                            "title": "Address",
+                            "field": "address"
+                        },
+                        {
+                            "title": "DNS Name",
+                            "field": "dns"
+                        },
+                        {
+                            "title": "Auto Close Session",
+                            "field": "auto_close"
+                        },
+                        {
+                            "title": "Expire",
+                            "field": "expire"
+                        },
+                        {
+                            "title": "Days Left",
+                            "field": "daysleft"
+                        },
+                    ],
+                    data: [
+                        {
+                            "id": "<i class='fa fa-cog fa-lg text-primary'></i> 20250",
+                            "name": "<i class='fa fa-sign-in fa-lg text-success'></i> Aleta.Net",
+                            "address": "172.16.0.1",
+                            "dns": "http://aleta.web",
+                            "auto_close": false,
+                            "expire": "2024-06-07",
+                            "daysleft": "29"
+                        },
+                        {
+                            "id": " <i class='fa fa-cog fa-lg text-primary'></i> 20250",
+                            "name": "<i class='fa fa-sign-in fa-lg text-success'></i> Aleta.Net",
+                            "address": "172.16.0.1",
+                            "dns": "http://aleta.web",
+                            "auto_close": false,
+                            "expire": "2024-06-07",
+                            "daysleft": "29"
+                        },
+                        {
+                            "id": "<i class='fa fa-cog fa-lg text-primary'></i> 20250",
+                            "name": "<i class='fa fa-sign-in fa-lg text-success'></i> Aleta.Net",
+                            "address": "172.16.0.1",
+                            "dns": "http://aleta.web",
+                            "auto_close": false,
+                            "expire": "2024-06-07",
+                            "daysleft": "29"
+                        }
+                    ]
+                });
+            })
+        </script>
+    </body>
+</html>
